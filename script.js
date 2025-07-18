@@ -549,7 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
           const response = await fetch(
-            "theluxeroom-backend.vercel.app/orders",
+            "https://theluxeroom-backend.vercel.app//orders",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -890,7 +890,9 @@ async function loadProducts() {
   if (!productGrid) return;
 
   try {
-    const response = await fetch("theluxeroom-backend.vercel.app/products");
+    const response = await fetch(
+      "https://theluxeroom-backend.vercel.app//products"
+    );
     if (!response.ok) throw new Error("Помилка завантаження продуктів");
 
     const products = await response.json();
