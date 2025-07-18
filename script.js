@@ -671,6 +671,9 @@ const translations = {
     deliveryTime: "Време за Доставка > след потвърждение",
     shippingCost: "Стойност на Доставка: $5.00 (Стандартен) / $10.00 (Експрес)",
     confirmOrder: "Потвърди Поръчката",
+    messageTitle: "Модата не стои неподвижна. И ние също.",
+    messageText:
+      "Изберете своя стил в секциите на менюто по-горе — там ви очакват маркови колекции.",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -721,6 +724,9 @@ const translations = {
     deliveryTime: "Delivery Time: Upon Confirmation",
     shippingCost: "Shipping Cost: $5.00 (Standard) / $10.00 (Express)",
     confirmOrder: "Confirm Order",
+    messageTitle: "Fashion doesn't stand still. And neither do we.",
+    messageText:
+      "Choose your style in the menu sections above — branded collections are waiting for you there.",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -771,6 +777,9 @@ const translations = {
     deliveryTime: "Время Доставки > После Подтверждения",
     shippingCost: "Стоимость Доставки: $5.00 (Стандарт) / $10.00 (Экспресс)",
     confirmOrder: "Подтвердить Заказ",
+    messageTitle: "Мода не стоит на месте. И мы тоже.",
+    messageText:
+      "Выберите свой стиль в разделах меню выше – там вас ждут брендовые коллекции.",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -821,6 +830,9 @@ const translations = {
     deliveryTime: "Lieferfrist > nach Bestätigung",
     shippingCost: "Versandkosten: $5.00 (Standard) / $10.00 (Express)",
     confirmOrder: "Bestellung bestätigen",
+    messageTitle: "Die Mode steht nicht still. Und wir auch nicht.",
+    messageText:
+      "Wählen Sie Ihren Stil in den Menübereichen oben – dort warten Markenkollektionen auf Sie.",
   },
 };
 

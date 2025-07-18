@@ -1,4 +1,5 @@
 /* Custom styles for Black Boutique translucent aesthetic */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 html,
 body {
   height: 100%;
@@ -2266,5 +2267,89 @@ header .icons button {
   .logo-img {
     max-width: 30px !important;
     max-height: 30px !important;
+  }
+}
+
+.empty-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.message-box {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05); /* напівпрозорий фон */
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  color: #f1f1f1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.message-box h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.message-box p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.browse-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background-color: #fff;
+  color: #111;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.browse-button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .message-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .message-box h1 {
+    font-size: 1.4rem;
+  }
+
+  .message-box p {
+    font-size: 1rem;
+  }
+
+  .browse-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }
