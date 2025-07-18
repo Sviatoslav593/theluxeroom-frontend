@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - TheLuxeRoom</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header>
+      <nav
+        class="container mx-auto px-4 py-6 flex justify-between items-center"
+      >
+        <div class="logo" style="display: flex; align-items: center; gap: 10px">
+          <img
+            src="./images/logo.png"
+            alt=""
+            style="max-width: 80px; max-height: 80px"
+            class="logo-img"
+          />
+          <a class="logo-text text-white text-2xl font-bold" href="./index.html"
+            >TheLuxeRoom</a
+          >
+        </div>
+        <ul class="nav-links hidden md:flex space-x-8 items-center">
+          <li>
+            <a class="nav-link" data-translate="homeLink" href="./index.html"
+              >Home</a
+            >
+          </li>
+          <li class="group relative">
+            <a
+              class="nav-link flex items-center"
+              data-translate="forMenLink"
+              href="#"
+            >
+              For Men
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 9l-7 7-7-7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </a>
+
+            <ul
+              class="dropdown absolute left-0 mt-2 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+            >
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >T-Shirts</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Jackets</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Shoes</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Bags</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./men-bags-gu44i.html"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./men-bags-f3ndi.html"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./men-bags-l5vv.html"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Accessories</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="group relative">
+            <a
+              class="nav-link flex items-center"
+              data-translate="forWomenLink"
+              href="#"
+            >
+              For Women
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewbox="0 0 24 24"
+              >
+                <path
+                  d="M19 9l-7 7-7-7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </a>
+            <ul
+              class="dropdown absolute left-0 mt-2 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300"
+            >
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >T-Shirts</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Jackets</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Shoes</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Bags</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./women-bags-gu44i.html"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./women-bags-pr9d9.html"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./women-bags-l5vv.html"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./women-bags-chan3ll.html"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="./women-bags-h3rm3s.html"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group relative">
+                <a class="nav-link block px-4 py-2 hover:bg-black/24" href="#"
+                  >Accessories</a
+                >
+                <ul
+                  class="brands-dropdown absolute left-full top-0 ml-0 w-48 bg-black/85 backdrop-blur rounded-lg shadow-lg opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                >
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Gu44i</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >F3ndi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Pr9d9</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >L5VV</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Balen44iaga</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >Chan3ll</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >H3rm3s</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="nav-link block px-4 py-2 hover:bg-black/24"
+                      href="#"
+                      >D10r</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="icons flex items-center space-x-4 md:flex">
+          <select
+            class="bg-black/80 backdrop-blur-md border border-gray-700 rounded-lg text-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 hover:bg-gray-800 transition-all duration-200"
+            id="language-select"
+          >
+            <option value="bg">БГ</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="de">DE</option>
+          </select>
+          <a class="text-white md:hidden" href="#">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+            </svg>
+          </a>
+          <!-- CART BUTTON -->
+          <a class="text-white" href="./cart.html" id="cart-btn"
+            ><svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path></svg
+          ></a>
+          <!-- CART BUTTON -->
+          <a
+            class="text-white"
+            href="./cart.html"
+            id="mobile-cart-btn"
+            style="display: none"
+            ><svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path></svg
+          ></a>
+          <button
+            class="md:hidden text-white focus:outline-none"
+            id="burger-open-btn"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                d="M4 6h16M4 12h16m-7 6h7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-85 backdrop-blur-md z-50 hidden transform translate-x-full transition-transform duration-300"
+      id="mobile-menu"
+    >
+      <button class="absolute top-4 right-4 text-white text-2xl" id="close-btn">
+        ×
+      </button>
+      <div
+        class="mobile-menu-list flex flex-col justify-start items-start w-full h-full overflow-y-auto pt-24 px-4"
+      >
+        <a
+          class="mobile-menu-link w-full py-2 text-lg border-b border-gray-700"
+          data-translate="homeLink"
+          href="./index.html"
+          >Home</a
+        >
+        <button
+          class="mobile-menu-link flex justify-between items-center w-full py-2 text-lg"
+          data-translate="forMenLink"
+          id="mobile-men-toggle"
+        >
+          For Men
+          <svg height="24" width="24">
+            <path d="M7 10l5 5 5-5z" fill="white"></path>
+          </svg>
+        </button>
+        <div
+          class="submenu w-full max-h-0 overflow-hidden transition-all duration-400 opacity-0"
+          id="mobile-men-submenu"
+        >
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            T-Shirts
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Jackets
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Footwear -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Shoes
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Bags -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Bags
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./men-bags-gu44i.html"
+              >Gu44i</a
+            >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./men-bags-f3ndi.html"
+              >F3ndi</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./men-bags-l5vv.html"
+              >L5VV</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Accessories -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Accessories
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+        </div>
+
+        <button
+          class="mobile-menu-link flex justify-between items-center w-full py-2 text-lg"
+          data-translate="forWomenLink"
+          id="mobile-women-toggle"
+        >
+          For Women
+          <svg height="24" width="24">
+            <path d="M7 10l5 5 5-5z" fill="white"></path>
+          </svg>
+        </button>
+        <div
+          class="submenu w-full max-h-0 overflow-hidden transition-all duration-400 opacity-0"
+          id="mobile-men-submenu"
+        >
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            T-Shirts
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Jackets
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Footwear -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Shoes
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Bags -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Bags
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./women-bags-gu44i.html"
+              >Gu44i</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./women-bags-pr9d9.html"
+              >Pr9d9</a
+            >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./women-bags-l5vv.html"
+              >L5VV</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./women-bags-chan3ll.html"
+              >Chan3ll</a
+            >
+            <a
+              class="block px-8 py-2 hover:bg-gray-800"
+              href="./women-bags-h3rm3s.html"
+              >H3rm3s</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+
+          <!-- Accessories -->
+          <button
+            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+          >
+            Accessories
+          </button>
+          <div
+            class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+          >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#"
+              >Balen44iaga</a
+            >
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a>
+            <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="cart-section">
+        <h1 class="cart-title">
+          <span data-translate="cartTitle">Your Cart</span>
+        </h1>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-summary">
+          <a href="./checkout.html" class="checkout-link btn-anim"
+            ><span data-translate="proceedToCheckout"
+              >Proceed to Checkout</span
+            ></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black py-8 border-t border-gray-600">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-300 mb-4">
+          © 2025 TheLuxeRoom. All rights reserved.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><span data-translate="privacyPolicy">Privacy Policy</span></a
+          >
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><span data-translate="termsOfService">Terms of Service</span></a
+          >
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><span data-translate="contactUs">Contact Us</span></a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
