@@ -548,20 +548,23 @@ document.addEventListener("DOMContentLoaded", () => {
         let total = 0; // Якщо є ціни, розрахуйте тут
 
         try {
-          const response = await fetch("project333-ten.vercel.app/orders", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              firstName,
-              lastName,
-              address,
-              city,
-              phone,
-              comments,
-              items: cart,
-              total,
-            }),
-          });
+          const response = await fetch(
+            "theluxeroom-backend.vercel.app/orders",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                firstName,
+                lastName,
+                address,
+                city,
+                phone,
+                comments,
+                items: cart,
+                total,
+              }),
+            }
+          );
 
           const responseText = await response.text();
           console.log("Відповідь від сервера:", responseText); // Лог для перевірки відповіді
@@ -887,7 +890,7 @@ async function loadProducts() {
   if (!productGrid) return;
 
   try {
-    const response = await fetch("project333-ten.vercel.app/products");
+    const response = await fetch("theluxeroom-backend.vercel.app/products");
     if (!response.ok) throw new Error("Помилка завантаження продуктів");
 
     const products = await response.json();
