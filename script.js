@@ -674,6 +674,8 @@ const translations = {
     messageTitle: "Модата не стои неподвижна. И ние също.",
     messageText:
       "Изберете своя стил в секциите на менюто по-горе — там ви очакват маркови колекции.",
+    IndexModalText:
+      "Моля, уточнете размера и цвета в коментарите към поръчката!",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -727,6 +729,7 @@ const translations = {
     messageTitle: "Fashion doesn't stand still. And neither do we.",
     messageText:
       "Choose your style in the menu sections above — branded collections are waiting for you there.",
+    IndexModalText: "Please specify size and color in the order comments!",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -780,6 +783,8 @@ const translations = {
     messageTitle: "Мода не стоит на месте. И мы тоже.",
     messageText:
       "Выберите свой стиль в разделах меню выше – там вас ждут брендовые коллекции.",
+    IndexModalText:
+      "Пожалуйста, укажите размер и цвет в комментариях к заказу!",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -833,6 +838,7 @@ const translations = {
     messageTitle: "Die Mode steht nicht still. Und wir auch nicht.",
     messageText:
       "Wählen Sie Ihren Stil in den Menübereichen oben – dort warten Markenkollektionen auf Sie.",
+    IndexModalText: "Bitte Größe und Farbe im Bestellkommentar angeben!",
   },
 };
 

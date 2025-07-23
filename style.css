@@ -2353,3 +2353,11 @@ header .icons button {
     padding: 0.8rem 1.5rem;
   }
 }
+
+#product-name {
+  text-align: center;
+}
+
+.product-modal-text {
+  text-align: center;
+}
