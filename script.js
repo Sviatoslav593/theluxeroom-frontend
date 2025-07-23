@@ -668,8 +668,8 @@ const translations = {
     phoneLabel: "Телефонен Номер",
     commentsLabel: "Коментари",
     orderSummaryTitle: "Обобщение на запитването",
-    deliveryTime: "Време за Доставка > след потвърждение",
-    shippingCost: "Стойност на Доставка: $5.00 (Стандартен) / $10.00 (Експрес)",
+    deliveryTime: "Време за доставка: 2-3 седмици",
+    // shippingCost: "Стойност на Доставка: $5.00 (Стандартен) / $10.00 (Експрес)",
     confirmOrder: "Потвърди Поръчката",
     messageTitle: "Модата не стои неподвижна. И ние също.",
     messageText:
@@ -723,8 +723,8 @@ const translations = {
     phoneLabel: "Phone Number",
     commentsLabel: "Comments",
     orderSummaryTitle: "Request Summary",
-    deliveryTime: "Delivery Time: Upon Confirmation",
-    shippingCost: "Shipping Cost: $5.00 (Standard) / $10.00 (Express)",
+    deliveryTime: "Delivery time: 2-3 weeks",
+    // shippingCost: "Shipping Cost: $5.00 (Standard) / $10.00 (Express)",
     confirmOrder: "Confirm Order",
     messageTitle: "Fashion doesn't stand still. And neither do we.",
     messageText:
@@ -777,8 +777,8 @@ const translations = {
     phoneLabel: "Номер Телефона",
     commentsLabel: "Комментарии",
     orderSummaryTitle: "Сводка Запроса",
-    deliveryTime: "Время Доставки > После Подтверждения",
-    shippingCost: "Стоимость Доставки: $5.00 (Стандарт) / $10.00 (Экспресс)",
+    deliveryTime: "Срок доставки: 2-3 недели",
+    // shippingCost: "Стоимость Доставки: $5.00 (Стандарт) / $10.00 (Экспресс)",
     confirmOrder: "Подтвердить Заказ",
     messageTitle: "Мода не стоит на месте. И мы тоже.",
     messageText:
@@ -832,8 +832,8 @@ const translations = {
     phoneLabel: "Telefonnummer",
     commentsLabel: "Kommentare",
     orderSummaryTitle: "Zusammenfassung des Antrags",
-    deliveryTime: "Lieferfrist > nach Bestätigung",
-    shippingCost: "Versandkosten: $5.00 (Standard) / $10.00 (Express)",
+    deliveryTime: "Lieferzeit: 2-3 Wochen",
+    // shippingCost: "Versandkosten: $5.00 (Standard) / $10.00 (Express)",
     confirmOrder: "Bestellung bestätigen",
     messageTitle: "Die Mode steht nicht still. Und wir auch nicht.",
     messageText:
