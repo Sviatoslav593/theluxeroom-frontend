@@ -689,6 +689,7 @@ const translations = {
     womenShoesTitle: "Дамски обувки",
     womenSunglassesTitle: "Дамски очила",
     womenTshirtTitle: "Дамски тениски",
+    womenJacketsTitle: "Дамски якета",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -756,6 +757,7 @@ const translations = {
     womenShoesTitle: "Women's Shoes",
     womenSunglassesTitle: "Women's Sunglasses",
     womenTshirtTitle: "Women's T-Shirts",
+    womenJacketsTitle: "Women's Jackets",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -823,6 +825,7 @@ const translations = {
     womenShoesTitle: "Женская Обувь",
     womenSunglassesTitle: "Женские Очки",
     womenTshirtTitle: "Женские Футболки",
+    womenJacketsTitle: "Женские Куртки",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -890,6 +893,7 @@ const translations = {
     womenShoesTitle: "Damenschuhe",
     womenSunglassesTitle: "Damenbrillen",
     womenTshirtTitle: "T-Shirts für Damen",
+    womenJacketsTitle: "Damenjacken",
   },
 };
 
