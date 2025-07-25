@@ -698,6 +698,15 @@ const translations = {
     sunglasses: "Очила",
     watches: "Часовници",
     accessories: "Аксесоари",
+    contactTitle:
+      "Имате въпроси относно нашите продукти или поръчки? Пишете ни — ние сме винаги тук, за да помогнем!",
+    mainContact: "Основен Контакт:",
+    replyText:
+      "⏰ Отговаряме ежедневно от 10:00 до 22:00. Ако сме офлайн — не се притеснявайте, ще се свържем с вас възможно най-скоро!",
+    transactionsText: "🔐 Гарантирано сигурни транзакции",
+    supportText: "💬 Приятелска и бърза поддръжка",
+    orderText: "📦 Бърза обработка на поръчките",
+    contactsLink: "Контакти",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -774,6 +783,15 @@ const translations = {
     sunglasses: "Glasses",
     watches: "Watches",
     accessories: "Accessories",
+    contactTitle:
+      "Got questions about our products or orders? Message us — we’re always here to help!",
+    mainContact: "Main Contact:",
+    replyText:
+      "⏰ We reply daily from 10:00 to 22:00 If we're offline — don’t worry, we’ll get back to you as soon as possible!",
+    transactionsText: "🔐 Secure transactions guaranteed",
+    supportText: "💬 Friendly and fast support",
+    orderText: "📦 Quick order processing",
+    contactsLink: "Contacts",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -850,6 +868,15 @@ const translations = {
     sunglasses: "Очки",
     watches: "Часы",
     accessories: "Аксессуары",
+    contactTitle:
+      "Есть вопросы о наших продуктах или заказах? Напишите нам — мы всегда готовы помочь!",
+    mainContact: "Основной Контакт:",
+    replyText:
+      "⏰ Мы отвечаем ежедневно с 10:00 до 22:00. Если мы не в сети — не волнуйтесь, мы свяжемся с вами как можно скорее!",
+    transactionsText: "🔐 Гарантия безопасности транзакций",
+    supportText: "💬 Дружелюбная и быстрая поддержка",
+    orderText: "📦 Быстрая обработка заказов",
+    contactsLink: "Контакты",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -926,6 +953,15 @@ const translations = {
     sunglasses: "Brillen",
     watches: "Armbanduhr",
     accessories: "Accessoires",
+    contactTitle:
+      "Haben Sie Fragen zu unseren Produkten oder Bestellungen? Schreiben Sie uns – wir helfen Ihnen gerne weiter!",
+    mainContact: "Hauptkontakt:",
+    replyText:
+      "⏰ Wir antworten täglich von 10:00 bis 22:00 Uhr. Falls wir offline sind – keine Sorge, wir melden uns so schnell wie möglich bei Ihnen!",
+    transactionsText: "🔐 Sichere Transaktionen garantiert",
+    supportText: "💬 Freundlicher und schneller Support",
+    orderText: "📦 Schnelle Auftragsabwicklung",
+    contactsLink: "Kontakte",
   },
 };
 

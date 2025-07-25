@@ -1,4 +1,4 @@
-/* Custom styles for Black Boutique translucent aesthetic */
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 html,
 body {
@@ -2360,4 +2360,66 @@ header .icons button {
 
 .product-modal-text {
   text-align: center;
+}
+
+.contacts-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 70%;
+}
+
+.contacts-contact-block {
+  text-align: center;
+  font-weight: 400;
+}
+
+.main-contact-text {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.main-contact {
+  margin-bottom: 100px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.contacts-reply-text {
+  font-size: 2rem;
+}
+
+.contacts-security-block {
+  display: flex;
+  gap: 50px;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 769px) {
+  .main-contact-text {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .main-contact {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .contacts-reply-text {
+    font-size: 1rem;
+  }
+
+  .contacts-security-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.2rem;
+  }
+
+  .contacts-wrapper {
+    justify-content: space-evenly;
+  }
 }
