@@ -156,7 +156,7 @@ function updateCart() {
             <span class="quantity-value">${item.quantity}</span>
             <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
           </div>
-          <button class="remove-btn" data-index="${index}">Remove</button>
+          <button class="remove-btn" data-index="${index} data-translate="removeBtn">Remove</button>
         </div>
       `;
       cartItems.appendChild(cartItem);
@@ -707,6 +707,7 @@ const translations = {
     supportText: "💬 Приятелска и бърза поддръжка",
     orderText: "📦 Бърза обработка на поръчките",
     contactsLink: "Контакти",
+    removeBtn: "Изтриване",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -792,6 +793,7 @@ const translations = {
     supportText: "💬 Friendly and fast support",
     orderText: "📦 Quick order processing",
     contactsLink: "Contacts",
+    removeBtn: "Remove",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -877,6 +879,7 @@ const translations = {
     supportText: "💬 Дружелюбная и быстрая поддержка",
     orderText: "📦 Быстрая обработка заказов",
     contactsLink: "Контакты",
+    removeBtn: "Удалить",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -962,6 +965,7 @@ const translations = {
     supportText: "💬 Freundlicher und schneller Support",
     orderText: "📦 Schnelle Auftragsabwicklung",
     contactsLink: "Kontakte",
+    removeBtn: "Entfernen",
   },
 };
 
