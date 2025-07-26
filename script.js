@@ -156,7 +156,7 @@ function updateCart() {
             <span class="quantity-value">${item.quantity}</span>
             <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
           </div>
-          <button class="remove-btn" data-index="${index} data-translate="removeBtn">Remove</button>
+          <button class="remove-btn" data-index="${index} data-translate="removeBtn" ">Remove</button>
         </div>
       `;
       cartItems.appendChild(cartItem);
@@ -495,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="quantity-value">${item.quantity}</span>
               <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
             </div>
-            <button class="remove-btn" data-index="${index} data-translate="removeBtn"">Remove</button>
+            <button class="remove-btn" data-index="${index}">Remove</button>
           </div>
         `;
         cartItem.innerHTML = itemDetailsHTML;
