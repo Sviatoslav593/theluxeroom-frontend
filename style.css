@@ -246,6 +246,10 @@ header .icons button {
   border-radius: 8px;
 }
 
+#product-add-to-cart {
+  min-width: 200px !important;
+}
+
 .product-card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
