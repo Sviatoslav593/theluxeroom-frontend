@@ -136,7 +136,7 @@ function updateCart() {
     let total = 0;
 
     cart.forEach((item, index) => {
-      const price = parseFloat(item.price?.replace("$", "") || "0");
+      const price = parseFloat(item.price?.replace("€", "") || "0");
       const itemTotal = price * item.quantity;
       total += itemTotal;
 
@@ -180,7 +180,7 @@ function updateOrderSummary() {
     let total = 0;
 
     cart.forEach((item, index) => {
-      const price = parseFloat(item.price.replace("$", ""));
+      const price = parseFloat(item.price.replace("€", ""));
       const itemTotal = price * item.quantity;
       total += itemTotal;
 
@@ -193,7 +193,7 @@ function updateOrderSummary() {
         <div class="order-item-details">
           <h3>${item.name}</h3>
           <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
-          <p>Price: ${item.price} x ${item.quantity} = $${itemTotal.toFixed(
+          <p>Price: ${item.price} x ${item.quantity} = €${itemTotal.toFixed(
         2
       )}</p>
         </div>
@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       cart.forEach((item, index) => {
-        const price = parseFloat(item.price?.replace("$", "") || "0");
+        const price = parseFloat(item.price?.replace("€", "") || "0");
         const itemTotal = price * item.quantity;
         total += itemTotal;
 
@@ -600,7 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       cart.forEach((item, index) => {
-        const price = parseFloat(item.price.replace("$", ""));
+        const price = parseFloat(item.price.replace("€", ""));
         const itemTotal = price * item.quantity;
         total += itemTotal;
 
@@ -613,7 +613,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="order-item-details">
             <h3>${item.name}</h3>
             <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
-            <p>Price: ${item.price} x ${item.quantity} = $${itemTotal.toFixed(
+            <p>Price: ${item.price} x ${item.quantity} = €${itemTotal.toFixed(
           2
         )}</p>
           </div>
@@ -1057,7 +1057,6 @@ async function loadProducts() {
     // Очищаємо контейнер
     productGrid.innerHTML = "";
 
-    // Рендеримо кожен продукт (адаптовано під ваш HTML-шаблон продуктів)
     products.forEach((product) => {
       const card = document.createElement("div");
       card.className = "product-card";
@@ -1068,7 +1067,7 @@ async function loadProducts() {
         product.name
       }" class="product-img">
       <h3>${product.name}</h3>
-      <p>$${parseFloat(product.price)?.toFixed(2) || "N/A"}</p>
+      <p>€${parseFloat(product.price)?.toFixed(2) || "N/A"}</p>
       <button class="add-to-cart">Request Item</button>
       `;
       productGrid.appendChild(card);
