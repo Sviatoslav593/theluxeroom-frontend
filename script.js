@@ -136,7 +136,7 @@ function updateCart() {
     let total = 0;
 
     cart.forEach((item, index) => {
-      const price = parseFloat(item.price.replace("$", ""));
+      const price = parseFloat(item.price?.replace("$", "") || "0");
       const itemTotal = price * item.quantity;
       total += itemTotal;
 
@@ -148,7 +148,6 @@ function updateCart() {
       }" class="cart-item-image">
         <div class="cart-item-details">
           <h3>${item.name}</h3>
-          <p>Color: ${item.color ? item.color.toUpperCase() : "N/A"}</p>
           <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
           <p>Price: ${item.price}</p>
           <div class="quantity-controls">
@@ -156,7 +155,7 @@ function updateCart() {
             <span class="quantity-value">${item.quantity}</span>
             <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
           </div>
-          <button class="remove-btn" data-index="${index} data-translate="removeBtn" ">Remove</button>
+          <button class="remove-btn" data-index="${index}">Remove</button>
         </div>
       `;
       cartItems.appendChild(cartItem);
@@ -193,7 +192,6 @@ function updateOrderSummary() {
       }" class="order-item-image">
         <div class="order-item-details">
           <h3>${item.name}</h3>
-          <p>Color: ${item.color ? item.color.toUpperCase() : "N/A"}</p>
           <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
           <p>Price: ${item.price} x ${item.quantity} = $${itemTotal.toFixed(
         2
@@ -269,6 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = this.closest(".product-card");
       const name = card.querySelector("h3").textContent;
       const imgSrc = card.querySelector(".product-img").src;
+      const price = card.querySelector(".product-price").textContent;
+      document.getElementById("product-price").textContent = price;
 
       const thumbnails = document.querySelectorAll("#product-modal .thumbnail");
       const cardThumbs = card.querySelectorAll(
@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Логіка додавання товару до кошика тільки при натисканні на кнопку
+  // Логіка додавання товару до кошика при натисканні на кнопку
   document
     .getElementById("product-add-to-cart")
     ?.addEventListener("click", () => {
@@ -365,6 +365,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ? document.getElementById("product-size").value
         : null;
       const mainImageSrc = document.getElementById("main-image").src;
+      const productPrice = document
+        .getElementById("product-price")
+        .textContent.trim();
 
       if (!productName) {
         console.error("Invalid product data:", { productName });
@@ -373,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
       const existingItem = cart.find((item) => item.name === productName);
+
       if (existingItem) {
         existingItem.quantity = quantity;
       } else {
@@ -382,8 +386,10 @@ document.addEventListener("DOMContentLoaded", () => {
           size: productSize,
           quantity,
           image: mainImageSrc,
+          price: productPrice,
         });
       }
+
       localStorage.setItem("cart", JSON.stringify(cart));
 
       const cartCount = document.getElementById("cart-count");
@@ -398,7 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
       notification.textContent = "Product added to cart!";
       document.body.appendChild(notification);
 
-      // Видаляємо клас no-scroll після завершення анімації
       setTimeout(() => {
         notification.remove();
         document.body.classList.remove("no-scroll");
@@ -463,33 +468,28 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCart() {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
     const cartCount = document.getElementById("cart-count");
 
     if (cartItems) {
       cartItems.innerHTML = "";
-      let total = 0; // Тимчасово 0, оскільки ціни немає
+      let total = 0;
 
       cart.forEach((item, index) => {
+        const price = parseFloat(item.price?.replace("$", "") || "0");
+        const itemTotal = price * item.quantity;
+        total += itemTotal;
+
         const cartItem = document.createElement("div");
         cartItem.className = "cart-item";
-        let itemDetailsHTML = `
+        cartItem.innerHTML = `
           <img src="${item.image || "images/placeholder.jpg"}" alt="${
           item.name
         }" class="cart-item-image">
           <div class="cart-item-details">
             <h3>${item.name}</h3>
-        `;
-
-        // Додаємо колір лише якщо він існує
-        if (item.color) {
-          itemDetailsHTML += `<p>Color: ${item.color.toUpperCase()}</p>`;
-        }
-        // Додаємо розмір лише якщо він існує
-        if (item.size) {
-          itemDetailsHTML += `<p>Size: ${item.size.toUpperCase()}</p>`;
-        }
-
-        itemDetailsHTML += `
+            <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
+            <p>Price: ${item.price}</p>
             <div class="quantity-controls">
               <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
               <span class="quantity-value">${item.quantity}</span>
@@ -498,10 +498,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="remove-btn" data-index="${index}">Remove</button>
           </div>
         `;
-        cartItem.innerHTML = itemDetailsHTML;
         cartItems.appendChild(cartItem);
       });
 
+      if (cartTotal) cartTotal.textContent = total.toFixed(2);
       if (cartCount)
         cartCount.textContent = cart.reduce(
           (sum, item) => sum + item.quantity,
@@ -589,33 +589,41 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Оновлена функція updateOrderSummary без залежності від ціни
+  // Оновлена функція updateOrderSummary
   function updateOrderSummary() {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const orderItems = document.getElementById("order-items");
+    const orderTotal = document.getElementById("order-total");
 
     if (orderItems) {
       orderItems.innerHTML = "";
+      let total = 0;
 
       cart.forEach((item, index) => {
+        const price = parseFloat(item.price.replace("$", ""));
+        const itemTotal = price * item.quantity;
+        total += itemTotal;
+
         const orderItem = document.createElement("div");
         orderItem.className = "order-item";
         orderItem.innerHTML = `
-        <img src="${item.image || "images/placeholder.jpg"}" alt="${
+          <img src="${item.image || "images/placeholder.jpg"}" alt="${
           item.name
         }" class="order-item-image">
-        <div class="order-item-details">
-          <h3>${item.name}</h3>
-          <p>Color: ${item.color ? item.color.toUpperCase() : "N/A"}</p>
-          <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
-          <p>Quantity: ${item.quantity}</p>
-        </div>
-      `;
+          <div class="order-item-details">
+            <h3>${item.name}</h3>
+            <p>Size: ${item.size ? item.size.toUpperCase() : "N/A"}</p>
+            <p>Price: ${item.price} x ${item.quantity} = $${itemTotal.toFixed(
+          2
+        )}</p>
+          </div>
+        `;
         orderItems.appendChild(orderItem);
       });
+
+      if (orderTotal) orderTotal.textContent = total.toFixed(2);
     }
   }
-  // loadProducts();
 });
 
 // Updated Translation Logic for Multiple Pages

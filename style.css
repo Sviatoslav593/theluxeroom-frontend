@@ -274,6 +274,13 @@ header .icons button {
 .product-content p {
   text-align: left;
   margin-top: 0.5rem;
+  margin-left: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.product-content h3 {
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .add-to-cart-wrapper {
