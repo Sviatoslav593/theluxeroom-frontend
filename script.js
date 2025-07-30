@@ -1,3 +1,5 @@
+const { suite } = require("node:test");
+
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -691,7 +693,7 @@ const translations = {
     womenTshirtTitle: "Дамски тениски",
     womenJacketsTitle: "Дамски костюми",
     tshirts: "Тениски",
-    jackets: "Костюмы",
+    jackets: "Яке",
     pants: "Панталон",
     shoes: "Обувки",
     bags: "Чанти",
@@ -708,6 +710,7 @@ const translations = {
     orderText: "📦 Бърза обработка на поръчките",
     contactsLink: "Контакти",
     removeBtn: "Изтриване",
+    suits: "Костюми",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -777,7 +780,7 @@ const translations = {
     womenTshirtTitle: "Women's T-Shirts",
     womenJacketsTitle: "Women's Suits",
     tshirts: "T-Shirts",
-    jackets: "Suits",
+    jackets: "Jackets",
     pants: "Pants",
     shoes: "Shoes",
     bags: "Bags",
@@ -794,6 +797,7 @@ const translations = {
     orderText: "📦 Quick order processing",
     contactsLink: "Contacts",
     removeBtn: "Remove",
+    suits: "Suits",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -863,7 +867,7 @@ const translations = {
     womenTshirtTitle: "Женские Футболки",
     womenJacketsTitle: "Женские Костюмы",
     tshirts: "Футболки",
-    jackets: "Костюмы",
+    jackets: "Куртки",
     pants: "Штаны",
     shoes: "Обувь",
     bags: "Сумки",
@@ -880,6 +884,7 @@ const translations = {
     orderText: "📦 Быстрая обработка заказов",
     contactsLink: "Контакты",
     removeBtn: "Удалить",
+    suits: "Костюмы",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -949,7 +954,7 @@ const translations = {
     womenTshirtTitle: "T-Shirts für Damen",
     womenJacketsTitle: "Damenanzüge",
     tshirts: "T-Shirts",
-    jackets: "Kostüm",
+    jackets: "Jacken",
     pants: "Hose",
     shoes: "Schuhe",
     bags: "Taschen",
@@ -966,6 +971,7 @@ const translations = {
     orderText: "📦 Schnelle Auftragsabwicklung",
     contactsLink: "Kontakte",
     removeBtn: "Entfernen",
+    suits: "Anzüge",
   },
 };
 
