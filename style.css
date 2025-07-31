@@ -280,6 +280,13 @@ header .icons button {
 
 #product-price {
   text-align: center;
+  font-size: 1.9rem !important;
+  color: #ffffff !important;
+}
+
+.product-price {
+  font-size: 1.35rem !important;
+  color: #ffffff;
 }
 
 .product-content h3 {
@@ -573,6 +580,7 @@ header .icons button {
 
   .delivery-info {
     font-size: 0.9rem;
+    border: 1px solid white !;
   }
 
   .order-total p {
