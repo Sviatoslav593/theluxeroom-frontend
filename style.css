@@ -272,14 +272,18 @@ header .icons button {
 }
 
 .product-content p {
-  text-align: left;
+  text-align: center;
   margin-top: 0.5rem;
   margin-left: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+}
+
+#product-price {
+  text-align: center;
 }
 
 .product-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-align: center;
 }
 

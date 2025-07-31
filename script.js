@@ -1041,6 +1041,48 @@ document.querySelectorAll(".brand-toggle").forEach((btn) => {
   });
 });
 
+document.querySelectorAll(".product-card").forEach((card) => {
+  const title = card.querySelector("h3");
+  const price = card.querySelector(".product-price");
+
+  if (title && price && title.textContent.includes("T-Shirt")) {
+    price.textContent = "€85";
+  }
+});
+
+document.querySelectorAll(".product-card").forEach((card) => {
+  const title = card.querySelector("h3");
+  if (title && title.textContent.includes("Gu44i Bag")) {
+    const price = card.querySelector("p");
+    if (price) {
+      price.className = "product-price text-gray-400 text-center";
+      price.textContent = "€200";
+    }
+  }
+});
+
+document.querySelectorAll(".product-card").forEach((card) => {
+  const title = card.querySelector("h3");
+  if (title && title.textContent.includes("Van Cl33f Accessory")) {
+    const price = card.querySelector("p");
+    if (price) {
+      price.className = "product-price text-gray-400 text-center";
+      price.textContent = "€165";
+    }
+  }
+});
+
+document.querySelectorAll(".product-card").forEach((card) => {
+  const title = card.querySelector("h3");
+  if (title && title.textContent.includes("Chrom3 H3arts Pants")) {
+    const price = card.querySelector("p");
+    if (price) {
+      price.className = "product-price text-gray-400 text-center";
+      price.textContent = "€95";
+    }
+  }
+});
+
 // Функція для завантаження та рендерингу продуктів з БД
 async function loadProducts() {
   const productGrid = document.getElementById("product-grid");
