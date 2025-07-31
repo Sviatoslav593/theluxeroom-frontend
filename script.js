@@ -545,7 +545,12 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        let total = 0; // Якщо є ціни, розрахуйте тут
+        // Обчислення загальної суми
+        let total = 0;
+        cart.forEach((item) => {
+          const price = parseFloat(item.price?.replace(/[€$]/, "") || "0");
+          total += price * item.quantity;
+        });
 
         try {
           const response = await fetch(
@@ -561,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 phone,
                 comments,
                 items: cart,
-                total,
+                total: total.toFixed(2),
               }),
             }
           );
@@ -1174,7 +1179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const clonedCard = card.cloneNode(true);
       productGrid.appendChild(clonedCard);
 
-      // Динамічне додавання ціни для "Chrom3 H3arts Pants" після додавання в DOM
+      // Динамічне додавання ціни після додавання в DOM
       const clonedTitle = clonedCard.querySelector("h3");
       document.querySelectorAll(".product-card").forEach((card) => {
         const title = card.querySelector("h3");
@@ -1287,9 +1292,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal.classList.add("active"); // Замінено на простий клас для сумісності
     document.body.classList.add("no-scroll");
 
-    // Додаткове налаштування стилів модалки (якщо потрібно)
+    // Додаткове налаштування стилів модалки
     requestAnimationFrame(() => {
-      modal.style.opacity = "1"; // Додано для плавного відображення, якщо потрібно
+      modal.style.opacity = "1";
     });
   });
 
