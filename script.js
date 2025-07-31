@@ -1083,6 +1083,332 @@ document.querySelectorAll(".product-card").forEach((card) => {
   }
 });
 
+// Функція для автоматичного додавання всіх товарів з інших сторінок на головну сторінку
+document.addEventListener("DOMContentLoaded", async () => {
+  // Перевіряємо, що ми на головній сторінці
+  if (
+    !window.location.pathname.endsWith("index.html") &&
+    window.location.pathname !== "/"
+  )
+    return;
+
+  const productGrid = document.getElementById("product-grid");
+  if (!productGrid) return;
+
+  const existingNames = new Set(
+    Array.from(productGrid.querySelectorAll(".product-card h3")).map((h3) =>
+      h3.textContent.trim()
+    )
+  );
+
+  const pages = [
+    "men-bags-f3ndi.html",
+    "men-bags-gu44i.html",
+    "men-bags-l5vv.html",
+    "men-jackets-f3ndi.html",
+    "men-jackets-gu44i.html",
+    "men-jackets-l5vv.html",
+    "men-jackets-m0ncl3r.html",
+    "men-pants-f3ndi.html",
+    "men-shoes-balenc44iaga.html",
+    "men-shoes-l5vv.html",
+    "men-sunglasses-cart13r.html",
+    "men-sunglasses-cel1ne.html",
+    "men-tshirts-d10r.html",
+    "men-tshirts-f3ndi.html",
+    "men-tshirts-gu44i.html",
+    "men-watches-aud3mars.html",
+    "women-accessories-cart13r.html",
+    "women-accessories-vancl33f.html",
+    "women-bags-gu44i.html",
+    "women-bags-chan3ll.html",
+    "women-bags-h3rm3s.html",
+    "women-bags-l5vv.html",
+    "women-bags-pr9d9.html",
+    "women-pants-chrom3h3arts.html",
+    "women-pants-d10r.html",
+    "women-pants-l5vv.html",
+    "women-shoes-balenc44iaga.html",
+    "women-shoes-chan3ll.html",
+    "women-shoes-d10r.html",
+    "women-shoes-gu44i.html",
+    "women-shoes-l5vv.html",
+    "women-shoes-loubout1n.html",
+    "women-suit-d10r.html",
+    "women-sunglasses-bvlgar1.html",
+    "women-sunglasses-cart13r.html",
+    "women-sunglasses-cel1ne.html",
+    "women-sunglasses-chan3ll.html",
+    "women-sunglasses-m1um1u.html",
+    "women-tshirts-am1r1.html",
+    "women-tshirts-balen44iaga.html",
+    "women-tshirts-l5vv.html",
+  ];
+
+  // Асинхронне завантаження всіх сторінок
+  const responses = await Promise.all(
+    pages.map((page) =>
+      fetch(page).catch((err) => {
+        console.error(`Помилка завантаження ${page}`, err);
+        return null;
+      })
+    )
+  );
+  const htmls = await Promise.all(
+    responses.map((res) => (res ? res.text() : Promise.resolve(null)))
+  );
+
+  htmls.forEach((html, index) => {
+    if (!html) return;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const cards = doc.querySelectorAll(".product-card");
+
+    cards.forEach((card) => {
+      const name = card.querySelector("h3")?.textContent.trim();
+      if (!name || existingNames.has(name)) return;
+
+      existingNames.add(name);
+
+      // Клонування картки
+      const clonedCard = card.cloneNode(true);
+      productGrid.appendChild(clonedCard);
+
+      // Динамічне додавання ціни для "Chrom3 H3arts Pants" після додавання в DOM
+      const clonedTitle = clonedCard.querySelector("h3");
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const title = card.querySelector("h3");
+        const price = card.querySelector(".product-price");
+
+        if (title && price && title.textContent.includes("T-Shirt")) {
+          price.textContent = "€85";
+        }
+      });
+
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const title = card.querySelector("h3");
+        if (title && title.textContent.includes("Gu44i Bag")) {
+          const price = card.querySelector("p");
+          if (price) {
+            price.className = "product-price text-gray-400 text-center";
+            price.textContent = "€200";
+          }
+        }
+      });
+
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const title = card.querySelector("h3");
+        if (title && title.textContent.includes("Van Cl33f Accessory")) {
+          const price = card.querySelector("p");
+          if (price) {
+            price.className = "product-price text-gray-400 text-center";
+            price.textContent = "€165";
+          }
+        }
+      });
+
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const title = card.querySelector("h3");
+        if (title && title.textContent.includes("Chrom3 H3arts Pants")) {
+          const price = card.querySelector("p");
+          if (price) {
+            price.className = "product-price text-gray-400 text-center";
+            price.textContent = "€95";
+          }
+        }
+      });
+    });
+  });
+
+  // Делегування подій для відкриття модалки
+  productGrid.addEventListener("click", (e) => {
+    const button = e.target.closest(".add-to-cart");
+    if (!button) return;
+
+    const card = button.closest(".product-card");
+    if (!card) return;
+
+    const name = card.querySelector("h3")?.textContent.trim() || "";
+    const price =
+      card.querySelector(".product-price")?.textContent.trim() || "";
+    const imgSrc = card.querySelector(".product-img")?.src || "";
+    const thumbnails = card.querySelectorAll(
+      ".thumbnails-container .thumbnail"
+    );
+    const thumbnailContainer = document.querySelector(".thumbnail-images");
+    const mainImage = document.getElementById("main-image");
+    const productName = document.getElementById("product-name");
+    const productPrice = document.getElementById("product-price");
+    const modal = document.getElementById("product-modal");
+
+    // Перевірка наявності елементів перед оновленням
+    if (
+      !mainImage ||
+      !productName ||
+      !productPrice ||
+      !modal ||
+      !thumbnailContainer
+    ) {
+      console.error("Помилка: один з елементів модалки не знайдено", {
+        mainImage,
+        productName,
+        productPrice,
+        modal,
+        thumbnailContainer,
+      });
+      return;
+    }
+
+    // Оновлення головного зображення
+    mainImage.src = imgSrc || "images/placeholder.jpg";
+    mainImage.style.maxWidth = "100%";
+    mainImage.style.height = "300px";
+
+    // Очищення та додавання thumbnails
+    thumbnailContainer.innerHTML = "";
+    thumbnails.forEach((thumb, i) => {
+      if (thumb.src) {
+        const newThumb = document.createElement("img");
+        newThumb.src = thumb.src;
+        newThumb.alt = `Thumbnail ${i + 1}`;
+        newThumb.className =
+          "thumbnail w-15 h-15 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500";
+        newThumb.classList.toggle("active", i === 0);
+        thumbnailContainer.appendChild(newThumb);
+      }
+    });
+
+    // Оновлення даних у модалці
+    productName.textContent = name;
+    productPrice.textContent = price;
+
+    // Відкриття модалки
+    modal.classList.remove("hidden");
+    modal.classList.add("active"); // Замінено на простий клас для сумісності
+    document.body.classList.add("no-scroll");
+
+    // Додаткове налаштування стилів модалки (якщо потрібно)
+    requestAnimationFrame(() => {
+      modal.style.opacity = "1"; // Додано для плавного відображення, якщо потрібно
+    });
+  });
+
+  // Закриття модалки
+  const modal = document.getElementById("product-modal");
+  const closeBtn = document.getElementById("modal-close-btn");
+  if (modal && closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+      modal.style.opacity = "0"; // Плавне зникнення
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    });
+  }
+
+  // Додаткове делегування для переключення thumbnails
+  const thumbnailImages = document.querySelector(".thumbnail-images");
+  if (thumbnailImages) {
+    thumbnailImages.addEventListener("click", (e) => {
+      const thumb = e.target.closest(".thumbnail");
+      if (thumb) {
+        const mainImage = document.getElementById("main-image");
+        const current = document.querySelector(".thumbnail.active");
+        if (current) current.classList.remove("active");
+        thumb.classList.add("active");
+        if (mainImage) mainImage.src = thumb.src;
+      }
+    });
+  }
+});
+
+// Делегування подій для відкриття модалки
+productGrid.addEventListener("click", (e) => {
+  const button = e.target.closest(".add-to-cart");
+  if (!button) return;
+
+  const card = button.closest(".product-card");
+  if (!card) return;
+
+  const name = card.querySelector("h3")?.textContent.trim() || "";
+  const price = card.querySelector(".product-price")?.textContent.trim() || "";
+  const imgSrc = card.querySelector(".product-img")?.src || "";
+  const thumbnails = card.querySelectorAll(".thumbnails-container .thumbnail");
+  const thumbnailContainer = document.querySelector(".thumbnail-images");
+  const mainImage = document.getElementById("main-image");
+  const productName = document.getElementById("product-name");
+  const productPrice = document.getElementById("product-price");
+  const modal = document.getElementById("product-modal");
+
+  if (mainImage && productName && productPrice && modal && thumbnailContainer) {
+    // Оновлення головного зображення
+    mainImage.src = imgSrc || "images/placeholder.jpg";
+    mainImage.style.maxWidth = "100%";
+    mainImage.style.height = "300px";
+
+    // Очищення та додавання thumbnails
+    thumbnailContainer.innerHTML = "";
+    thumbnails.forEach((thumb, i) => {
+      if (thumb.src) {
+        // Перевірка, щоб уникнути порожніх thumbnail
+        const newThumb = document.createElement("img");
+        newThumb.src = thumb.src;
+        newThumb.alt = `Thumbnail ${i + 1}`;
+        newThumb.className =
+          "thumbnail w-15 h-15 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500";
+        newThumb.classList.toggle("active", i === 0);
+        thumbnailContainer.appendChild(newThumb);
+      }
+    });
+
+    // Оновлення даних у модалці
+    productName.textContent = name;
+    productPrice.textContent = price;
+
+    // Відкриття модалки
+    modal.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      modal.classList.add("opacity-100");
+      document.body.classList.add("no-scroll");
+    });
+  } else {
+    console.error("Помилка: один з елементів модалки не знайдено", {
+      mainImage,
+      productName,
+      productPrice,
+      modal,
+      thumbnailContainer,
+    });
+  }
+});
+
+// Закриття модалки
+const modal = document.getElementById("product-modal");
+const closeBtn = document.getElementById("modal-close-btn");
+if (modal && closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("opacity-100");
+    document.body.classList.remove("no-scroll");
+    setTimeout(() => modal.classList.add("hidden"), 500);
+  });
+}
+
+// Додаткове делегування для переключення thumbnails
+const thumbnailImages = document.querySelector(".thumbnail-images");
+if (thumbnailImages) {
+  thumbnailImages.addEventListener("click", (e) => {
+    const thumb = e.target.closest(".thumbnail");
+    if (thumb) {
+      const mainImage = document.getElementById("main-image");
+      const current = document.querySelector(".thumbnail.active");
+      if (current) current.classList.remove("active");
+      thumb.classList.add("active");
+      if (mainImage) mainImage.src = thumb.src;
+    }
+  });
+}
+
 // Функція для завантаження та рендерингу продуктів з БД
 async function loadProducts() {
   const productGrid = document.getElementById("product-grid");
