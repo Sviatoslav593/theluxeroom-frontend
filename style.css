@@ -282,11 +282,13 @@ header .icons button {
   text-align: center;
   font-size: 1.9rem !important;
   color: #ffffff !important;
+  font-weight: 800;
 }
 
 .product-price {
   font-size: 1.35rem !important;
   color: #ffffff;
+  font-weight: 600;
 }
 
 .product-content h3 {
