@@ -727,7 +727,6 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               notification.remove();
             }, 2000);
-            localStorage.removeItem("cart");
             updateOrderSummary();
             localStorage.setItem(
               "orderDetails",
