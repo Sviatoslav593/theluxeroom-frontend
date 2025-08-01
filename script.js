@@ -413,27 +413,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  // Закриття модалки
-  const closeBtn = document.getElementById("modal-close-btn");
-  if (modal && closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.remove("opacity-100");
-      document.body.classList.remove("no-scroll");
-      setTimeout(() => modal.classList.add("hidden"), 500);
-    });
-  }
-
-  // Встановлюємо нижчий z-index для модалки
-  if (modal) {
-    modal.style.zIndex = "10"; // Значно нижчий, ніж z-10000
-  }
-
-  // Встановлюємо нижчий z-index для хедера (припустимо, клас .header)
-  const header = document.querySelector(".header"); // Адаптуй селектор до твого HTML
-  if (header) {
-    header.style.zIndex = "5"; // Нижчий, ніж z-10000
-  }
   document.getElementById("modal-close-btn")?.addEventListener("click", () => {
     document.getElementById("product-modal").classList.remove("active");
     document.body.classList.remove("no-scroll");
@@ -1339,12 +1318,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // Делегування подій для відкриття модалки
+  // Делегування подій для відкриття модалки при кліку на будь-яке місце картки
   productGrid.addEventListener("click", (e) => {
-    const button = e.target.closest(".add-to-cart");
-    if (!button) return;
-
-    const card = button.closest(".product-card");
+    const card = e.target.closest(".product-card");
     if (!card) return;
 
     const name = card.querySelector("h3")?.textContent.trim() || "";
@@ -1403,7 +1379,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Відкриття модалки
     modal.classList.remove("hidden");
-    modal.classList.add("active"); // Замінено на простий клас для сумісності
+    modal.classList.add("active");
     document.body.classList.add("no-scroll");
 
     // Додаткове налаштування стилів модалки
@@ -1412,18 +1388,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // Закриття модалки
+  // Закриття модалки при кліку поза вмістом
   const modal = document.getElementById("product-modal");
-  const closeBtn = document.getElementById("modal-close-btn");
-  if (modal && closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-      modal.style.opacity = "0"; // Плавне зникнення
-      setTimeout(() => {
-        modal.classList.add("hidden");
-      }, 300);
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (!e.target.closest(".modal-content")) {
+        // Закриття при кліку поза вмістом
+        modal.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        modal.style.opacity = "0"; // Плавне зникнення
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      }
     });
+
+    const closeBtn = document.getElementById("modal-close-btn");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        modal.style.opacity = "0"; // Плавне зникнення
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      });
+    }
   }
 
   // Додаткове делегування для переключення thumbnails
