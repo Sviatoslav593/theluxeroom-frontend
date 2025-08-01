@@ -1639,29 +1639,41 @@
     </div>
     <main class="flex-grow container mx-auto p-4">
       <div class="confirmation-wrapper">
-        <h2 class="text-2xl font-semibold mb-4 text-center">
+        <h2
+          class="text-2xl font-semibold mb-4 text-center"
+          data-translate="thanksText"
+        >
           Order Information
         </h2>
         <div class="bg-black p-6 rounded-lg shadow-lg">
           <h3 class="details-text text-lg font-medium mb-2">Order Details</h3>
           <div class="order-details">
-            <p><strong>Name:</strong> <span id="order-name"></span></p>
-            <p>
+            <p data-translate="nameConfirmLabel">
+              <strong>Name:</strong> <span id="order-name"></span>
+            </p>
+            <p data-translate="addressConfirmLabel">
               <strong>Address:</strong>
               <span id="order-address"></span>
             </p>
-            <p><strong>City:</strong> <span id="order-city"></span></p>
-            <p>
+            <p data-translate="cityConfirmLabel">
+              <strong>City:</strong> <span id="order-city"></span>
+            </p>
+            <p data-translate="phoneConfirmLabel">
               <strong>Phone:</strong>
               <span id="order-phone"></span>
             </p>
-            <p>
+            <p data-translate="commentsConfirmLabel">
               <strong>Comments:</strong>
               <span id="order-comments"></span>
             </p>
           </div>
 
-          <h4 class="order-items-text text-md font-medium mt-4 mb-2">Items:</h4>
+          <h4
+            class="order-items-text text-md font-medium mt-4 mb-2"
+            data-translate="orderItemsText"
+          >
+            Items:
+          </h4>
           <ul id="order-items" class="order-items list-disc"></ul>
 
           <p class="mt-4 confirmation-total">
