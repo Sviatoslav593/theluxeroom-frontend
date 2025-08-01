@@ -1697,7 +1697,47 @@
           </div> -->
       </div>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const orderDetails = JSON.parse(
+          localStorage.getItem("orderDetails") || "{}"
+        );
+        console.log("Дані з localStorage:", orderDetails); // Для відладки
 
+        if (orderDetails && Object.keys(orderDetails).length > 0) {
+          document.getElementById("order-name").textContent =
+            orderDetails.name || "N/A";
+          document.getElementById("order-address").textContent =
+            orderDetails.address || "N/A";
+          document.getElementById("order-city").textContent =
+            orderDetails.city || "N/A";
+          document.getElementById("order-phone").textContent =
+            orderDetails.phone || "N/A";
+          document.getElementById("order-comments").textContent =
+            orderDetails.comments || "N/A";
+          document.getElementById("order-total").textContent = `$${
+            orderDetails.total || "0.00"
+          }`;
+
+          const orderItems = document.getElementById("order-items");
+          if (orderItems) {
+            orderItems.innerHTML = "";
+            orderDetails.items.forEach((item) => {
+              const li = document.createElement("li");
+              li.textContent = `${item.name} - ${item.price} x ${item.quantity}`;
+              orderItems.appendChild(li);
+            });
+          } else {
+            console.error("Елемент #order-items не знайдено");
+          }
+        } else {
+          console.error("Немає даних у localStorage або вони порожні");
+        }
+
+        // Очищаємо localStorage після відображення
+        localStorage.removeItem("orderDetails");
+      });
+    </script>
     <script defer="" src="script.js"></script>
   </body>
 </html>

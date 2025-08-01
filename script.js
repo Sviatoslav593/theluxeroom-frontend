@@ -724,9 +724,6 @@ document.addEventListener("DOMContentLoaded", () => {
             notification.className = "notification";
             notification.textContent = "Order successfully placed!";
             document.body.appendChild(notification);
-            setTimeout(() => {
-              notification.remove();
-            }, 2000);
             updateOrderSummary();
             localStorage.setItem(
               "orderDetails",
@@ -740,7 +737,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 total: total.toFixed(2),
               })
             );
-            window.location.href = "order-confirmation.html";
+            setTimeout(() => {
+              notification.remove();
+              window.location.href = "order-confirmation.html";
+            }, 2000);
           } else {
             alert("Order processing error: " + responseText);
           }
