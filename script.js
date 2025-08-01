@@ -726,22 +726,22 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(notification);
             setTimeout(() => {
               notification.remove();
-              localStorage.removeItem("cart");
-              updateOrderSummary();
-              localStorage.setItem(
-                "orderDetails",
-                JSON.stringify({
-                  name: `${firstName} ${lastName}`,
-                  address,
-                  city,
-                  phone,
-                  comments,
-                  items: cart,
-                  total: total.toFixed(2),
-                })
-              );
-              window.location.href = "order-confirmation.html";
             }, 2000);
+            localStorage.removeItem("cart");
+            updateOrderSummary();
+            localStorage.setItem(
+              "orderDetails",
+              JSON.stringify({
+                name: `${firstName} ${lastName}`,
+                address,
+                city,
+                phone,
+                comments,
+                items: cart,
+                total: total.toFixed(2),
+              })
+            );
+            window.location.href = "order-confirmation.html";
           } else {
             alert("Order processing error: " + responseText);
           }
@@ -1012,7 +1012,7 @@ const translations = {
     cityLabel: "Город",
     phoneLabel: "Номер Телефона",
     commentsLabel: "Комментарии",
-    orderSummaryTitle: "Состав заказа",
+    orderSummaryTitle: "Сводка Запроса",
     deliveryTime: "Срок доставки: 2-3 недели",
     confirmOrder: "Подтвердить Заказ",
     messageTitle: "Мода не стоит на месте. И мы тоже.",
