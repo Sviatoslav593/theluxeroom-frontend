@@ -886,6 +886,8 @@ const translations = {
     commentsConfirmLabel: "Коментари:",
     orderItemsText: "Обобщение на запитването:",
     total: "Общо:",
+    orderDetails: "Подробности за поръчката:",
+    backHome: "Върнете се у дома",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -981,6 +983,8 @@ const translations = {
     commentsConfirmLabel: "Comments:",
     orderItemsText: "Request Summary:",
     total: "Total:",
+    orderDetails: "Order Details:",
+    backHome: "Back to Home",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -1075,6 +1079,8 @@ const translations = {
     commentsConfirmLabel: "Комментарии:",
     orderItemsText: "Состав Заказа:",
     total: "Сумма:",
+    orderDetails: "Детали заказа:",
+    backHome: "Вернуться на Главную",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -1170,6 +1176,8 @@ const translations = {
     commentsConfirmLabel: "Kommentare:",
     orderItemsText: "Zusammenfassung des Antrags:",
     total: "Gesamt:",
+    orderDetails: "Bestelldetails:",
+    backHome: "Rückkehr nach Hause",
   },
 };
 
