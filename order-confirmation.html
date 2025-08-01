@@ -1706,16 +1706,16 @@
 
         if (orderDetails && Object.keys(orderDetails).length > 0) {
           document.getElementById("order-name").textContent =
-            orderDetails.name || "N/A";
+            orderDetails.name || "";
           document.getElementById("order-address").textContent =
-            orderDetails.address || "N/A";
+            orderDetails.address || "";
           document.getElementById("order-city").textContent =
-            orderDetails.city || "N/A";
+            orderDetails.city || "";
           document.getElementById("order-phone").textContent =
-            orderDetails.phone || "N/A";
+            orderDetails.phone || "";
           document.getElementById("order-comments").textContent =
-            orderDetails.comments || "N/A";
-          document.getElementById("order-total").textContent = `$${
+            orderDetails.comments || "";
+          document.getElementById("order-total").textContent = `€${
             orderDetails.total || "0.00"
           }`;
 
