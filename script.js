@@ -737,6 +737,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 total: total.toFixed(2),
               })
             );
+            localStorage.removeItem("cart");
             setTimeout(() => {
               notification.remove();
               window.location.href = "order-confirmation.html";
