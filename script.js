@@ -740,7 +740,6 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               notification.remove();
               window.location.href = "order-confirmation.html";
-              localStorage.removeItem("cart");
             }, 2000);
           } else {
             alert("Order processing error: " + responseText);
