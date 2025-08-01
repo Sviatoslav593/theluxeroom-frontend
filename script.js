@@ -261,47 +261,98 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-  // Логіка для модалки товару з динамічною кількістю thumbnail і делегуванням подій
-  document.querySelectorAll(".add-to-cart").forEach((button) => {
-    button.addEventListener("click", function () {
-      const card = this.closest(".product-card");
-      const name = card.querySelector("h3").textContent;
-      const imgSrc = card.querySelector(".product-img").src;
-      const priceEl = card.querySelector(".product-price");
-      const price = priceEl ? priceEl.textContent : "";
-      document.getElementById("product-price").textContent = price;
+  // Делегування подій для відкриття модалки при кліку на будь-яке місце картки
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".product-card");
+    if (!card) return;
 
-      const thumbnails = document.querySelectorAll("#product-modal .thumbnail");
-      const cardThumbs = card.querySelectorAll(
-        ".thumbnails-container .thumbnail"
-      );
+    const name = card.querySelector("h3")?.textContent.trim() || "";
+    const imgSrc = card.querySelector(".product-img")?.src || "";
+    const priceEl = card.querySelector(".product-price");
+    const price = priceEl ? priceEl.textContent.trim() : "";
+    const thumbnails = card.querySelectorAll(
+      ".thumbnails-container .thumbnail"
+    );
+    const thumbnailContainer = document.querySelector(".thumbnail-images");
+    const mainImage = document.getElementById("main-image");
+    const productName = document.getElementById("product-name");
+    const productPrice = document.getElementById("product-price");
+    const modal = document.getElementById("product-modal");
 
+    if (
+      mainImage &&
+      productName &&
+      productPrice &&
+      modal &&
+      thumbnailContainer
+    ) {
       // Відновлюємо головне фото з коректними розмірами
-      const mainImage = document.getElementById("main-image");
-      mainImage.src = imgSrc;
+      mainImage.src = imgSrc || "images/placeholder.jpg";
       mainImage.style.maxWidth = "100%";
       mainImage.style.height = "300px";
 
       // Очищаємо існуючі thumbnails і додаємо лише ті, що є
-      const thumbnailContainer = document.querySelector(".thumbnail-images");
-      thumbnails.forEach((thumb) => thumb.remove());
-      cardThumbs.forEach((thumb, i) => {
-        const newThumb = document.createElement("img");
-        newThumb.src = thumb.src || "images/placeholder.jpg";
-        newThumb.alt = `Thumbnail ${i + 1}`;
-        newThumb.className =
-          "thumbnail w-15 h-15 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500";
-        newThumb.classList.toggle("active", i === 0);
-        thumbnailContainer.appendChild(newThumb);
+      thumbnailContainer.innerHTML = "";
+      thumbnails.forEach((thumb, i) => {
+        if (thumb.src) {
+          const newThumb = document.createElement("img");
+          newThumb.src = thumb.src || "images/placeholder.jpg";
+          newThumb.alt = `Thumbnail ${i + 1}`;
+          newThumb.className =
+            "thumbnail w-15 h-15 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500";
+          newThumb.classList.toggle("active", i === 0);
+          thumbnailContainer.appendChild(newThumb);
+        }
       });
 
-      document.getElementById("product-modal").classList.add("active");
+      // Оновлюємо дані в модалці
+      productName.textContent = name;
+      productPrice.textContent = price;
+
+      modal.classList.remove("hidden");
+      modal.classList.add("active");
       document.body.classList.add("no-scroll");
 
-      // Оновлюємо дані в модалці
-      document.getElementById("product-name").textContent = name;
-    });
+      requestAnimationFrame(() => {
+        modal.style.opacity = "1";
+      });
+    } else {
+      console.error("Помилка: один з елементів модалки не знайдено", {
+        mainImage,
+        productName,
+        productPrice,
+        modal,
+        thumbnailContainer,
+      });
+    }
   });
+
+  // Закриття модалки при кліку поза вмістом
+  const modal1 = document.getElementById("product-modal");
+  if (modal1) {
+    modal1.addEventListener("click", (e) => {
+      if (!e.target.closest(".modal-content")) {
+        modal1.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        modal1.style.opacity = "0";
+        setTimeout(() => {
+          modal1.classList.add("hidden");
+        }, 300);
+      }
+    });
+
+    const closeBtn = document.getElementById("modal-close-btn");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        modal.style.opacity = "0";
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      });
+    }
+  }
 
   // Делегування подій для переключення thumbnail
   document
@@ -507,7 +558,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("product-modal").classList.remove("active");
     });
 
-  // Partial update for cart checkout logic with link (price-independent)
   // Логіка для сторінки кошика
   if (document.getElementById("cart-items")) {
     updateCart();
@@ -1431,77 +1481,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
-
-// Делегування подій для відкриття модалки
-productGrid.addEventListener("click", (e) => {
-  const button = e.target.closest(".add-to-cart");
-  if (!button) return;
-
-  const card = button.closest(".product-card");
-  if (!card) return;
-
-  const name = card.querySelector("h3")?.textContent.trim() || "";
-  const price = card.querySelector(".product-price")?.textContent.trim() || "";
-  const imgSrc = card.querySelector(".product-img")?.src || "";
-  const thumbnails = card.querySelectorAll(".thumbnails-container .thumbnail");
-  const thumbnailContainer = document.querySelector(".thumbnail-images");
-  const mainImage = document.getElementById("main-image");
-  const productName = document.getElementById("product-name");
-  const productPrice = document.getElementById("product-price");
-  const modal = document.getElementById("product-modal");
-
-  if (mainImage && productName && productPrice && modal && thumbnailContainer) {
-    // Оновлення головного зображення
-    mainImage.src = imgSrc || "images/placeholder.jpg";
-    mainImage.style.maxWidth = "100%";
-    mainImage.style.height = "300px";
-
-    // Очищення та додавання thumbnails
-    thumbnailContainer.innerHTML = "";
-    thumbnails.forEach((thumb, i) => {
-      if (thumb.src) {
-        // Перевірка, щоб уникнути порожніх thumbnail
-        const newThumb = document.createElement("img");
-        newThumb.src = thumb.src;
-        newThumb.alt = `Thumbnail ${i + 1}`;
-        newThumb.className =
-          "thumbnail w-15 h-15 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500";
-        newThumb.classList.toggle("active", i === 0);
-        thumbnailContainer.appendChild(newThumb);
-      }
-    });
-
-    // Оновлення даних у модалці
-    productName.textContent = name;
-    productPrice.textContent = price;
-
-    // Відкриття модалки
-    modal.classList.remove("hidden");
-    requestAnimationFrame(() => {
-      modal.classList.add("opacity-100");
-      document.body.classList.add("no-scroll");
-    });
-  } else {
-    console.error("Помилка: один з елементів модалки не знайдено", {
-      mainImage,
-      productName,
-      productPrice,
-      modal,
-      thumbnailContainer,
-    });
-  }
-});
-
-// Закриття модалки
-const modal = document.getElementById("product-modal");
-const closeBtn = document.getElementById("modal-close-btn");
-if (modal && closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("opacity-100");
-    document.body.classList.remove("no-scroll");
-    setTimeout(() => modal.classList.add("hidden"), 500);
-  });
-}
 
 // Додаткове делегування для переключення thumbnails
 const thumbnailImages = document.querySelector(".thumbnail-images");
