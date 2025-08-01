@@ -267,7 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = this.closest(".product-card");
       const name = card.querySelector("h3").textContent;
       const imgSrc = card.querySelector(".product-img").src;
-      const price = card.querySelector(".product-price").textContent;
+      const priceEl = card.querySelector(".product-price");
+      const price = priceEl ? priceEl.textContent : "";
       document.getElementById("product-price").textContent = price;
 
       const thumbnails = document.querySelectorAll("#product-modal .thumbnail");
