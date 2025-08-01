@@ -891,6 +891,10 @@ header .icons button {
   margin-bottom: 1rem;
 }
 
+#product-modal .main-image:hover {
+  cursor: pointer;
+}
+
 #product-modal .thumbnail-images {
   display: flex;
   gap: 0.75rem;

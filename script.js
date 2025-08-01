@@ -319,6 +319,121 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+  // Логіка для повноекранного фото при кліку на головне фото
+  const mainImage = document.getElementById("main-image");
+  const modal = document.getElementById("product-modal");
+
+  if (mainImage && modal) {
+    mainImage.addEventListener("click", () => {
+      const fullImageSrc = mainImage.src;
+      openFullScreenImage(fullImageSrc);
+    });
+  }
+
+  function openFullScreenImage(src) {
+    // Створюємо окремий шар повноекранного фото з максимальним z-index
+    const fullScreenOverlay = document.createElement("div");
+    fullScreenOverlay.id = "fullScreenOverlay"; // Для відладки
+    fullScreenOverlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Більше розмиття */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10000; /* Максимально високий z-index */
+  `;
+    fullScreenOverlay.innerHTML = `
+    <img src="${src}" alt="Full Screen Image" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    <button id="modal-close-btn-full" style="position: absolute; top: 10px; right: 10px; color: white; font-size: 30px; cursor: pointer; background: none; border: none;">&times;</button>
+  `;
+
+    // Логування для діагностики
+    console.log(
+      "Додаємо fullScreenOverlay до DOM:",
+      document.body.children.length
+    );
+    console.log(
+      "Поточний z-index:",
+      window.getComputedStyle(fullScreenOverlay).zIndex
+    );
+
+    // Блокуємо прокрутку сторінки
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = "100%"; // Додаємо для повного покриття
+
+    // Додаємо overlay в кінець body
+    document.body.appendChild(fullScreenOverlay);
+
+    // Перевіряємо порядок у DOM
+    console.log(
+      "Порядок елементів у DOM:",
+      Array.from(document.body.children).map((el) => el.id || el.className)
+    );
+
+    // Показуємо overlay з анімацією
+    requestAnimationFrame(() => {
+      fullScreenOverlay.style.opacity = "1";
+    });
+
+    // Закриття повноекранного фото
+    const closeBtnFull = document.getElementById("modal-close-btn-full");
+    if (closeBtnFull) {
+      closeBtnFull.addEventListener("click", () => {
+        fullScreenOverlay.style.opacity = "0";
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.style.height = ""; // Відновлюємо висоту
+        setTimeout(() => {
+          document.body.removeChild(fullScreenOverlay);
+        }, 300);
+      });
+    }
+
+    // Закриття при кліку поза зображенням
+    fullScreenOverlay.addEventListener("click", (e) => {
+      if (e.target === fullScreenOverlay) {
+        fullScreenOverlay.style.opacity = "0";
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.style.height = ""; // Відновлюємо висоту
+        setTimeout(() => {
+          document.body.removeChild(fullScreenOverlay);
+        }, 300);
+      }
+    });
+  }
+
+  // Закриття модалки
+  const closeBtn = document.getElementById("modal-close-btn");
+  if (modal && closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("opacity-100");
+      document.body.classList.remove("no-scroll");
+      setTimeout(() => modal.classList.add("hidden"), 500);
+    });
+  }
+
+  // Встановлюємо нижчий z-index для модалки
+  if (modal) {
+    modal.style.zIndex = "10"; // Значно нижчий, ніж z-10000
+  }
+
+  // Встановлюємо нижчий z-index для хедера (припустимо, клас .header)
+  const header = document.querySelector(".header"); // Адаптуй селектор до твого HTML
+  if (header) {
+    header.style.zIndex = "5"; // Нижчий, ніж z-10000
+  }
   document.getElementById("modal-close-btn")?.addEventListener("click", () => {
     document.getElementById("product-modal").classList.remove("active");
     document.body.classList.remove("no-scroll");
