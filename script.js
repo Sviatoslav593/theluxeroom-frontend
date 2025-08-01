@@ -1576,3 +1576,21 @@ async function loadProducts() {
       "<p>Помилка завантаження продуктів. Спробуйте пізніше.</p>";
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const headerContainer = document.getElementById("header-placeholder");
+
+  fetch("header.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Не вдалося завантажити хедер");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      headerContainer.innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Помилка при завантаженні хедера:", error);
+    });
+});
