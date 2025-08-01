@@ -737,10 +737,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 total: total.toFixed(2),
               })
             );
-            localStorage.removeItem("cart");
             setTimeout(() => {
               notification.remove();
               window.location.href = "order-confirmation.html";
+              localStorage.removeItem("cart");
             }, 2000);
           } else {
             alert("Order processing error: " + responseText);
