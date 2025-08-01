@@ -1027,7 +1027,7 @@ const translations = {
     cityLabel: "Город",
     phoneLabel: "Номер Телефона",
     commentsLabel: "Комментарии",
-    orderSummaryTitle: "Состав заказа",
+    orderSummaryTitle: "Состав Заказа",
     deliveryTime: "Срок доставки: 2-3 недели",
     confirmOrder: "Подтвердить Заказ",
     messageTitle: "Мода не стоит на месте. И мы тоже.",
