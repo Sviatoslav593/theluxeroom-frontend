@@ -884,6 +884,8 @@ const translations = {
     cityConfirmLabel: "Град:",
     phoneConfirmLabel: "Телефонен Номер:",
     commentsConfirmLabel: "Коментари:",
+    orderItemsText: "Обобщение на запитването:",
+    total: "Общо:",
   },
   en: {
     pageTitle: "TheLuxeRoom",
@@ -977,6 +979,8 @@ const translations = {
     cityConfirmLabel: "City:",
     phoneConfirmLabel: "Phone Number:",
     commentsConfirmLabel: "Comments:",
+    orderItemsText: "Request Summary:",
+    total: "Total:",
   },
   ru: {
     pageTitle: "TheLuxeRoom",
@@ -1023,7 +1027,7 @@ const translations = {
     cityLabel: "Город",
     phoneLabel: "Номер Телефона",
     commentsLabel: "Комментарии",
-    orderSummaryTitle: "Сводка Запроса",
+    orderSummaryTitle: "Состав заказа",
     deliveryTime: "Срок доставки: 2-3 недели",
     confirmOrder: "Подтвердить Заказ",
     messageTitle: "Мода не стоит на месте. И мы тоже.",
@@ -1069,6 +1073,8 @@ const translations = {
     cityConfirmLabel: "Город:",
     phoneConfirmLabel: "Номер телефона:",
     commentsConfirmLabel: "Комментарии:",
+    orderItemsText: "Состав Заказа:",
+    total: "Сумма:",
   },
   de: {
     pageTitle: "TheLuxeRoom",
@@ -1162,6 +1168,8 @@ const translations = {
     cityConfirmLabel: "Stadt:",
     phoneConfirmLabel: "Telefonnummer:",
     commentsConfirmLabel: "Kommentare:",
+    orderItemsText: "Zusammenfassung des Antrags:",
+    total: "Gesamt:",
   },
 };
 
