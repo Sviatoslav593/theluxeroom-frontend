@@ -480,10 +480,10 @@ header .icons button {
   align-items: flex-start;
   gap: 1rem;
   padding: 0.75rem;
-  background: rgba(26, 26, 26, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(8px);
   border-radius: 8px;
-  border: 1px solid #4b5563;
+  border: 1px solid #ffffff;
 }
 
 .order-item-image {

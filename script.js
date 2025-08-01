@@ -729,6 +729,19 @@ document.addEventListener("DOMContentLoaded", () => {
               localStorage.removeItem("cart");
               updateOrderSummary();
             }, 2000);
+            localStorage.setItem(
+              "orderDetails",
+              JSON.stringify({
+                name: `${firstName} ${lastName}`,
+                address,
+                city,
+                phone,
+                comments,
+                items: cart,
+                total: total.toFixed(2),
+              })
+            );
+            window.location.href = "order-confirmation.html";
           } else {
             alert("Order processing error: " + responseText);
           }
@@ -1572,26 +1585,25 @@ async function loadProducts() {
     });
   } catch (err) {
     console.error("Помилка завантаження продуктів:", err);
-    // Опціонально: Покажіть помилку користувачу
     productGrid.innerHTML =
       "<p>Помилка завантаження продуктів. Спробуйте пізніше.</p>";
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const headerContainer = document.getElementById("header-placeholder");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const headerContainer = document.getElementById("header-placeholder");
 
-  fetch("header.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Не вдалося завантажити хедер");
-      }
-      return response.text();
-    })
-    .then((html) => {
-      headerContainer.innerHTML = html;
-    })
-    .catch((error) => {
-      console.error("Помилка при завантаженні хедера:", error);
-    });
-});
+//   fetch("header.html")
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Не вдалося завантажити хедер");
+//       }
+//       return response.text();
+//     })
+//     .then((html) => {
+//       headerContainer.innerHTML = html;
+//     })
+//     .catch((error) => {
+//       console.error("Помилка при завантаженні хедера:", error);
+//     });
+// });
