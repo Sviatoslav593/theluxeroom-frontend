@@ -1250,6 +1250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
 
   const pages = [
+    "men-watches-r0l3x.html",
     "men-bags-f3ndi.html",
     "men-bags-gu44i.html",
     "men-bags-l5vv.html",
