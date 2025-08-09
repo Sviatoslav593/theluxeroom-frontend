@@ -1330,7 +1330,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     "women-bags-l5vv.html",
     "women-bags-pr9d9.html",
     "women-pants-chrom3h3arts.html",
-    "women-pants-d10r.html",
     "women-pants-l5vv.html",
     "women-shoes-balenc44iaga.html",
     "women-shoes-chan3ll.html",
