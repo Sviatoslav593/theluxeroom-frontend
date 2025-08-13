@@ -205,7 +205,13 @@ function updateCart() {
     let total = 0;
 
     cart.forEach((item, index) => {
-      const price = parseFloat(item.price?.replace("€", "") || "0");
+      const num = parseFloat(
+        (item.price || "0")
+          .toString()
+          .replace(/[^\d.,-]/g, "")
+          .replace(",", ".")
+      );
+      const price = isNaN(num) ? 0 : num;
       const itemTotal = price * item.quantity;
       total += itemTotal;
 
@@ -252,7 +258,13 @@ function updateOrderSummary() {
     let total = 0;
 
     cart.forEach((item, index) => {
-      const price = parseFloat(item.price.replace("€", ""));
+      const num = parseFloat(
+        (item.price || "0")
+          .toString()
+          .replace(/[^\d.,-]/g, "")
+          .replace(",", ".")
+      );
+      const price = isNaN(num) ? 0 : num;
       const itemTotal = price * item.quantity;
       total += itemTotal;
 
@@ -797,7 +809,13 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       cart.forEach((item, index) => {
-        const price = parseFloat(item.price?.replace("€", "") || "0");
+        const num = parseFloat(
+          (item.price || "0")
+            .toString()
+            .replace(/[^\d.,-]/g, "")
+            .replace(",", ".")
+        );
+        const price = isNaN(num) ? 0 : num;
         const itemTotal = price * item.quantity;
         total += itemTotal;
 
@@ -874,8 +892,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Обчислення загальної суми
         let total = 0;
         cart.forEach((item) => {
-          const price = parseFloat(item.price?.replace(/[€$]/, "") || "0");
-          total += price * item.quantity;
+          const num = parseFloat(
+            (item.price || "0")
+              .toString()
+              .replace(/[^\d.,-]/g, "")
+              .replace(",", ".")
+          );
+          const price = isNaN(num) ? 0 : num;
+          total += price * (item.quantity || 1);
         });
 
         try {
@@ -946,7 +970,13 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       cart.forEach((item, index) => {
-        const price = parseFloat(item.price.replace("€", ""));
+        const num = parseFloat(
+          (item.price || "0")
+            .toString()
+            .replace(/[^\d.,-]/g, "")
+            .replace(",", ".")
+        );
+        const price = isNaN(num) ? 0 : num;
         const itemTotal = price * item.quantity;
         total += itemTotal;
 
