@@ -1815,8 +1815,8 @@
           console.error("Немає даних у localStorage або вони порожні");
         }
 
-        // Очищаємо localStorage після відображення
-        localStorage.removeItem("orderDetails");
+        // Не очищаємо orderDetails негайно, щоб користувач бачив замовлені товари
+        // Можна очистити при наступному вході на сайт або через таймер за потреби
       });
     </script>
     <script defer="" src="script.js"></script>

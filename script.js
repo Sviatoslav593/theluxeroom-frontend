@@ -729,8 +729,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateHeaderCartCount();
   }
 
-  // Логіка для сторінки оформлення замовлення
-  if (document.getElementById("order-items")) {
+  // Логіка для сторінки оформлення замовлення (не запускаємо на сторінці підтвердження замовлення)
+  if (
+    document.getElementById("order-items") &&
+    document.getElementById("confirm-order")
+  ) {
     updateOrderSummary();
 
     document
