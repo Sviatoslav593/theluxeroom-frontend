@@ -798,6 +798,9 @@ document.addEventListener("DOMContentLoaded", () => {
             notification.className = "notification";
             notification.textContent = "Order successfully placed!";
             document.body.appendChild(notification);
+            // Очищуємо кошик після успішного оформлення
+            localStorage.removeItem("cart");
+            updateHeaderCartCount();
             updateOrderSummary();
             localStorage.setItem(
               "orderDetails",
