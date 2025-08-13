@@ -1741,11 +1741,14 @@
           >
             Items:
           </h4>
-          <ul id="order-items" class="order-items list-disc"></ul>
+          <div
+            id="order-items"
+            class="order-items grid grid-cols-1 md:grid-cols-2 gap-4"
+          ></div>
 
           <p class="mt-4 confirmation-total">
             <strong data-translate="total">Total:</strong>
-            <span id="order-total">$495.00</span>
+            <span id="order-total">€0.00</span>
           </p>
         </div>
         <div class="text-center mt-6">
@@ -1796,7 +1799,7 @@
             orderDetails.phone || "";
           document.getElementById("order-comments").textContent =
             orderDetails.comments || "";
-          document.getElementById("order-total").textContent = `$${
+          document.getElementById("order-total").textContent = `€${
             orderDetails.total || "0.00"
           }`;
 
@@ -1804,9 +1807,21 @@
           if (orderItems) {
             orderItems.innerHTML = "";
             orderDetails.items.forEach((item) => {
-              const li = document.createElement("li");
-              li.textContent = `${item.name} - ${item.price} x ${item.quantity}`;
-              orderItems.appendChild(li);
+              const card = document.createElement("div");
+              card.className =
+                "flex items-start bg-gray-900 border border-gray-700 rounded-lg overflow-hidden";
+              card.innerHTML = `
+                <img src="${item.image || "images/placeholder.jpg"}" alt="${
+                item.name
+              }" class="w-24 h-24 object-cover flex-shrink-0" />
+                <div class=\"p-3\">
+                  <h5 class=\"text-white font-medium\">${item.name}</h5>
+                  <p class=\"text-gray-400 text-sm\">${item.price} × ${
+                item.quantity
+              }</p>
+                </div>
+              `;
+              orderItems.appendChild(card);
             });
           } else {
             console.error("Елемент #order-items не знайдено");
