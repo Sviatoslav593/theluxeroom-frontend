@@ -385,6 +385,103 @@ document.addEventListener("DOMContentLoaded", () => {
       productName.textContent = name;
       productPrice.textContent = price;
 
+      // Динамічні опції (size/color) залежно від категорії
+      const optionsContainer = document.getElementById("dynamic-options");
+      if (optionsContainer) {
+        optionsContainer.innerHTML = "";
+        const imgPath = imgSrc || "";
+
+        const segmentMatch = (seg, str) =>
+          new RegExp(`(?:^|/)${seg}(?:/|-)`).test(str || "");
+        const isMenShoes =
+          segmentMatch("men-shoes", imgPath) ||
+          segmentMatch("men-shoes", window.location.pathname);
+        const isWomenShoes =
+          segmentMatch("women-shoes", imgPath) ||
+          segmentMatch("women-shoes", window.location.pathname) ||
+          /for-women-shoes\//.test(imgPath);
+        const pathName = window.location.pathname || "";
+        const titleLower = (name || "").toLowerCase();
+        const isWatches =
+          /watches\//.test(imgPath) ||
+          /-watches-/.test(pathName) ||
+          titleLower.includes("watch");
+        const isSunglasses =
+          /sunglasses\//.test(imgPath) ||
+          /sunglasses-/.test(pathName) ||
+          titleLower.includes("sunglass");
+        const isBags =
+          /bags\//.test(imgPath) ||
+          /-bags-/.test(pathName) ||
+          /\bbag\b/.test(titleLower);
+        const isAccessories =
+          /accessories\//i.test(imgPath) ||
+          /-accessories-/i.test(pathName) ||
+          /accessor/.test(titleLower);
+
+        if (isMenShoes) {
+          // EU sizes for men shoes 38–46
+          const label = document.createElement("label");
+          label.className = "block mb-1 text-gray-300";
+          label.textContent = "Size (EU):";
+          const select = document.createElement("select");
+          select.id = "product-size";
+          select.className =
+            "w-full bg-gray-800 text-white p-2 rounded border border-gray-600";
+          [38, 39, 40, 41, 42, 43, 44, 45, 46].forEach((s) => {
+            const opt = document.createElement("option");
+            opt.value = String(s);
+            opt.textContent = String(s);
+            select.appendChild(opt);
+          });
+          optionsContainer.appendChild(label);
+          optionsContainer.appendChild(select);
+        } else if (isWomenShoes) {
+          const label = document.createElement("label");
+          label.className = "block mb-1 text-gray-300";
+          label.textContent = "Size (EU):";
+          const select = document.createElement("select");
+          select.id = "product-size";
+          select.className =
+            "w-full bg-gray-800 text-white p-2 rounded border border-gray-600";
+          [35, 36, 37, 38, 39, 40, 41, 42].forEach((s) => {
+            const opt = document.createElement("option");
+            opt.value = String(s);
+            opt.textContent = String(s);
+            select.appendChild(opt);
+          });
+          optionsContainer.appendChild(label);
+          optionsContainer.appendChild(select);
+        } else if (isWatches || isSunglasses || isBags || isAccessories) {
+          // Без розміру для годинників, окулярів, сумок та аксесуарів — нічого не додаємо
+        } else {
+          // Для одягу: чоловічі S–XL, жіночі XS–L
+          const label = document.createElement("label");
+          label.className = "block mb-1 text-gray-300";
+          label.textContent = "Size:";
+          const select = document.createElement("select");
+          select.id = "product-size";
+          select.className =
+            "w-full bg-gray-800 text-white p-2 rounded border border-gray-600";
+          const isMenContext =
+            /(for-men|\/men-)/.test(imgPath) || /(\/|^)men-/.test(pathName);
+          const isWomenContext =
+            /(for-women|\/women-)/.test(imgPath) ||
+            /(\/|^)women-/.test(pathName);
+          const sizes = isMenContext
+            ? ["S", "M", "L", "XL"]
+            : ["XS", "S", "M", "L"];
+          sizes.forEach((s) => {
+            const opt = document.createElement("option");
+            opt.value = s;
+            opt.textContent = s;
+            select.appendChild(opt);
+          });
+          optionsContainer.appendChild(label);
+          optionsContainer.appendChild(select);
+        }
+      }
+
       modal.classList.remove("hidden");
       modal.classList.add("active");
       document.body.classList.add("no-scroll");
@@ -601,11 +698,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (existingItem) {
         existingItem.quantity = quantity;
+        // Оновимо розмір, якщо в модалці присутній select розміру
+        const sizeSelect = document.getElementById("product-size");
+        if (sizeSelect) {
+          existingItem.size = sizeSelect.value;
+        }
       } else {
         cart.push({
           name: productName,
           color: productColor,
-          size: productSize,
+          size:
+            (document.getElementById("product-size") || {}).value ||
+            productSize,
           quantity,
           image: mainImageSrc,
           price: productPrice,
