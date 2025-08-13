@@ -125,6 +125,75 @@ function filterProducts() {
   });
 }
 
+// Функция для обновления счетчика корзины в хедере
+// Создает бейджи возле иконок корзины, если их нет (для всех страниц)
+function ensureCartBadges() {
+  const desktopBtn = document.getElementById("cart-btn");
+  const mobileBtn = document.getElementById("mobile-cart-btn");
+
+  // Удаляем возможные старые версии счетчиков
+  document
+    .querySelectorAll(
+      ".cart-count, #cart-count, .cart__count, [data-cart-count], .header-cart-count"
+    )
+    .forEach((el) => el.remove());
+
+  // Гарантируем корректное позиционирование бейджа
+  if (desktopBtn && !desktopBtn.classList.contains("relative")) {
+    desktopBtn.classList.add("relative");
+  }
+  if (mobileBtn && !mobileBtn.classList.contains("relative")) {
+    mobileBtn.classList.add("relative");
+  }
+
+  if (desktopBtn && !desktopBtn.querySelector("#cart-count-header")) {
+    const badge = document.createElement("span");
+    badge.id = "cart-count-header";
+    badge.className =
+      "absolute -top-2 -right-2 bg-white text-black text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold border border-gray-700 shadow-sm hidden";
+    badge.textContent = "0";
+    desktopBtn.appendChild(badge);
+  }
+
+  if (mobileBtn && !mobileBtn.querySelector("#mobile-cart-count-header")) {
+    const badge = document.createElement("span");
+    badge.id = "mobile-cart-count-header";
+    badge.className =
+      "absolute -top-2 -right-2 bg-white text-black text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold border border-gray-700 shadow-sm hidden";
+    badge.textContent = "0";
+    mobileBtn.appendChild(badge);
+  }
+}
+
+function updateHeaderCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
+  // Обновляем счетчик для десктопной версии
+  const cartCountHeader = document.getElementById("cart-count-header");
+  if (cartCountHeader) {
+    if (totalItems > 0) {
+      cartCountHeader.textContent = totalItems;
+      cartCountHeader.classList.remove("hidden");
+    } else {
+      cartCountHeader.classList.add("hidden");
+    }
+  }
+
+  // Обновляем счетчик для мобильной версии
+  const mobileCartCountHeader = document.getElementById(
+    "mobile-cart-count-header"
+  );
+  if (mobileCartCountHeader) {
+    if (totalItems > 0) {
+      mobileCartCountHeader.textContent = totalItems;
+      mobileCartCountHeader.classList.remove("hidden");
+    } else {
+      mobileCartCountHeader.classList.add("hidden");
+    }
+  }
+}
+
 function updateCart() {
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const cartItems = document.getElementById("cart-items");
@@ -168,6 +237,9 @@ function updateCart() {
         0
       );
   }
+
+  // Обновляем счетчик в хедере
+  updateHeaderCartCount();
 }
 
 function updateOrderSummary() {
@@ -225,6 +297,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("sort-select")?.addEventListener("change", (e) => {
     sortProducts(e.target.value);
   });
+
+  // Гарантируем наличие бейджа на иконках корзины и сразу обновляем счетчик
+  ensureCartBadges();
+  updateHeaderCartCount();
 
   document
     .getElementById("mobile-men-toggle")
@@ -538,12 +614,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      const cartCount = document.getElementById("cart-count");
-      if (cartCount)
-        cartCount.textContent = cart.reduce(
-          (sum, item) => sum + item.quantity,
-          0
-        );
+      // Обновляем бейджи возле иконок корзины
+      updateHeaderCartCount();
 
       const notification = document.createElement("div");
       notification.className = "notification";
@@ -653,6 +725,8 @@ document.addEventListener("DOMContentLoaded", () => {
           0
         );
     }
+    // синхронизируем бейджи в хедере
+    updateHeaderCartCount();
   }
 
   // Логіка для сторінки оформлення замовлення
