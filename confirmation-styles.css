@@ -1,101 +1,179 @@
-.bg-gray-800 {
-  border: 1px solid #333;
-  background: rgba(26, 26, 26, 0.9);
-  padding: 1.5rem;
-}
-
-h2 {
-  color: #ffffff;
-}
-
-h3,
-h4 {
-  color: #ffffff;
-}
-
-.details-text {
-  font-size: 1.5rem;
-}
-
-a {
-  text-decoration: none;
-}
-
-#order-items li {
-  margin-bottom: 0.5rem;
+/* General styles for the order confirmation page */
+main {
+  flex: 1 0 auto;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .confirmation-wrapper {
-  margin-top: 150px;
+  margin-top: 150px; /* Adjust as needed to clear header */
 }
 
+/* Base styles for order details block (dark theme default) */
+.order-details-block {
+  border: 1px solid #333333;
+  background: #000000; /* Solid black background for dark theme */
+  padding: 1.5rem;
+  border-radius: 0.5rem; /* Rounded corners for dark theme */
+}
+
+/* Text colors for dark theme inside order details block */
+.order-details-block h2,
+.order-details-block h3,
+.order-details-block h4,
+.order-details-block p,
+.order-details-block .details-text,
+.order-details-block .confirmation-total,
+.order-details-block .order-items-text {
+  color: #ffffff !important;
+}
+
+/* Light theme overrides for order details block */
+body.light-theme .order-details-block {
+  border: 1px solid #000000 !important;
+  background: #ffffff !important; /* White background for light theme */
+  border-radius: 0.5rem !important; /* Rounded corners for light theme */
+}
+
+/* Light theme text colors inside order details block */
+body.light-theme .order-details-block h2,
+body.light-theme .order-details-block h3,
+body.light-theme .order-details-block h4,
+body.light-theme .order-details-block p,
+body.light-theme .order-details-block .details-text,
+body.light-theme .order-details-block .confirmation-total,
+body.light-theme .order-details-block .order-items-text {
+  color: #000000 !important; /* Black text for light theme */
+}
+
+/* Order details paragraphs (Name, Address etc.) - special handling for borders */
 .order-details p {
-  color: #ffffff;
+  color: #ffffff; /* Default for dark theme */
   font-size: 1.2rem;
   margin: 0.5rem 0;
   padding: 0.25rem 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333333; /* Only bottom border for dark theme */
+  border-left: none;
+  border-right: none;
 }
 
-.order-items {
+body.light-theme .order-details p {
+  color: #000000 !important; /* Black for light theme */
+  border-bottom: 1px solid #000000 !important; /* Black bottom border for light theme */
+}
+
+/* Order item cards styles */
+.order-item {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(26, 26, 26, 0.9); /* Dark background for dark theme */
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid #ffffff; /* White border for dark theme */
 }
 
-.confirmation-total {
-  font-size: 1.3rem;
+.order-item-details h5,
+.order-item-details p {
+  color: #ffffff; /* White text for dark theme */
 }
 
-.order-items-text {
-  font-size: 1.5rem !important;
+body.light-theme .order-item {
+  background: #ffffff !important; /* White background for light theme */
+  border: 1px solid #000000 !important; /* Black border for light theme */
+}
+
+body.light-theme .order-item-details h5,
+body.light-theme .order-item-details p {
+  color: #000000 !important; /* Black text for light theme */
+}
+
+/* Footer styles (always black with white text) */
+footer {
+  background: #000000 !important;
+  color: #ffffff !important;
+  padding: 2rem 0;
+  border-top: 1px solid #4b5563; /* Keep the border */
+  text-align: center;
+}
+
+footer p {
+  color: #ffffff !important;
+}
+
+/* Back to Home button styles */
+.back-btn {
+  background: #000000 !important; /* Default black for dark theme */
+  color: #ffffff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .back-btn:hover {
-  background: #ffffff;
-  color: black;
+  background: #ffffff !important; /* Darker grey on hover for dark theme */
+  color: #000000 !important;
 }
 
-@media (max-width: 639px) {
-  main {
-    padding: 1rem;
-  }
+/* Light theme overrides for Back to Home button (remains mostly same, but ensures priority) */
+body.light-theme .back-btn {
+  background: #000000 !important; /* Black for light theme */
+  color: #ffffff !important;
+}
 
-  .confirmation-wrapper {
-    margin-top: 100px;
-  }
+body.light-theme .back-btn:hover {
+  background: #444444 !important; /* Slightly lighter black on hover for light theme */
+  color: #ffffff !important;
+}
 
-  .order-details p {
-    font-size: 1rem;
-  }
+/* Mobile menu styles for light theme */
+body.light-theme .mobile-menu {
+  background: #ffffff !important; /* White background */
+}
 
-  .details-text {
-    font-size: 1.3rem;
-  }
+body.light-theme .mobile-menu-list a,
+body.light-theme .mobile-menu-list button,
+body.light-theme .mobile-menu-list svg path {
+  color: #000000 !important; /* Black text */
+  stroke: #000000 !important; /* Black stroke for SVG */
+}
 
-  .confirmation-total {
-    font-size: 1.1rem;
-  }
+body.light-theme .mobile-menu-list .border-gray-700 {
+  border-color: #e5e7eb !important; /* Lighter border */
+}
 
-  .order-items-text {
-    font-size: 1.2rem !important;
-  }
+body.light-theme #close-btn {
+  color: #000000 !important;
+}
 
-  .bg-gray-800 {
-    padding: 1rem;
-  }
+/* Ensure body text color is black in light theme for confirmation page */
+body.light-theme {
+  color: #000000 !important;
+}
 
-  h2 {
-    font-size: 1.5rem;
-  }
+/* Mobile Theme Toggle Button styles */
+#mobile-theme-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: #000000; /* Black background for dark theme */
+  color: #ffffff; /* White text/icon for dark theme */
+  border: 1px solid #333333; /* Dark border */
+}
 
-  #order-items li {
-    font-size: 0.9rem;
+@media (max-width: 768px) {
+  #mobile-theme-toggle {
+    display: block; /* Show on mobile */
   }
+}
 
-  a {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
+body.light-theme #mobile-theme-toggle {
+  background: #ffffff !important; /* White background for light theme */
+  color: #000000 !important; /* Black text/icon for light theme */
+  border: 1px solid #000000 !important; /* Black border */
+}
+
+body.light-theme #mobile-theme-toggle svg path {
+  stroke: #000000 !important; /* Ensure SVG icon is black in light theme */
 }

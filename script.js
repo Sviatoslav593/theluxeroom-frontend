@@ -125,6 +125,48 @@ function filterProducts() {
   });
 }
 
+// Тема: перемикач світла/темна
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  const body = document.body;
+  const isLight = theme === "light";
+
+  body.classList.toggle("light-theme", isLight);
+}
+
+function initThemeToggle() {
+  const saved = localStorage.getItem("theme") || "dark";
+  applyTheme(saved);
+  const btn = document.getElementById("theme-toggle");
+  const mobileBtn = document.getElementById("mobile-theme-toggle");
+
+  const updateButtonText = (button, theme) => {
+    if (button) {
+      button.textContent = theme === "light" ? "Dark" : "Light";
+    }
+  };
+
+  const toggleAndSaveTheme = () => {
+    const next =
+      (localStorage.getItem("theme") || "dark") === "light" ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+    updateButtonText(btn, next);
+    updateButtonText(mobileBtn, next);
+  };
+
+  if (btn) {
+    updateButtonText(btn, saved);
+    btn.addEventListener("click", toggleAndSaveTheme);
+  }
+
+  if (mobileBtn) {
+    updateButtonText(mobileBtn, saved);
+    mobileBtn.addEventListener("click", toggleAndSaveTheme);
+  }
+}
+
 // Функция для обновления счетчика корзины в хедере
 // Создает бейджи возле иконок корзины, если их нет (для всех страниц)
 function ensureCartBadges() {
@@ -313,6 +355,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Гарантируем наличие бейджа на иконках корзины и сразу обновляем счетчик
   ensureCartBadges();
   updateHeaderCartCount();
+
+  // Тема: ініціалізація та перемикач
+  initThemeToggle();
 
   document
     .getElementById("mobile-men-toggle")
@@ -591,14 +636,14 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
     // Логування для діагностики
-    console.log(
-      "Додаємо fullScreenOverlay до DOM:",
-      document.body.children.length
-    );
-    console.log(
-      "Поточний z-index:",
-      window.getComputedStyle(fullScreenOverlay).zIndex
-    );
+    // console.log(
+    //   "Додаємо fullScreenOverlay до DOM:",
+    //   document.body.children.length
+    // );
+    // console.log(
+    //   "Поточний z-index:",
+    //   window.getComputedStyle(fullScreenOverlay).zIndex
+    // );
 
     // Блокуємо прокрутку сторінки
     document.body.style.overflow = "hidden";
@@ -610,10 +655,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(fullScreenOverlay);
 
     // Перевіряємо порядок у DOM
-    console.log(
-      "Порядок елементів у DOM:",
-      Array.from(document.body.children).map((el) => el.id || el.className)
-    );
+    // console.log(
+    //   "Порядок елементів у DOM:",
+    //   Array.from(document.body.children).map((el) => el.id || el.className)
+    // );
 
     // Показуємо overlay з анімацією
     requestAnimationFrame(() => {
@@ -1179,10 +1224,10 @@ const translations = {
     watches: "Watches",
     accessories: "Accessories",
     contactTitle:
-      "Got questions about our products or orders? Message us — we’re always here to help!",
+      "Got questions about our products or orders? Message us — we're always here to help!",
     mainContact: "Main Contact:",
     replyText:
-      "⏰ We reply daily from 10:00 to 22:00 If we're offline — don’t worry, we’ll get back to you as soon as possible!",
+      "⏰ We reply daily from 10:00 to 22:00 If we're offline — don't worry, we'll get back to you as soon as possible!",
     transactionsText: "🔐 Secure transactions guaranteed",
     supportText: "💬 Friendly and fast support",
     orderText: "📦 Quick order processing",

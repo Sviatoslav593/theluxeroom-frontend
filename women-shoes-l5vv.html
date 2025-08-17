@@ -1109,6 +1109,12 @@
             <option value="ru">RU</option>
             <option value="de">DE</option>
           </select>
+          <button
+            id="theme-toggle"
+            class="ml-2 px-3 py-2 rounded-lg border border-gray-700 text-white bg-black/80 hover:bg-gray-800 transition-all text-sm"
+          >
+            Light
+          </button>
           <a class="text-white md:hidden" href="#">
             <svg
               class="w-6 h-6"
@@ -1125,7 +1131,7 @@
             </svg>
           </a>
           <!-- CART BUTTON -->
-          <a class="text-white" href="./cart.html" id="cart-btn"
+          <a class="text-white relative" href="./cart.html" id="cart-btn"
             ><svg
               class="w-6 h-6"
               fill="none"
@@ -1141,7 +1147,7 @@
           ></a>
           <!-- CART BUTTON -->
           <a
-            class="text-white"
+            class="text-white relative"
             href="./cart.html"
             id="mobile-cart-btn"
             style="display: none"
@@ -1187,8 +1193,15 @@
         ×
       </button>
       <div
-        class="mobile-menu-list flex flex-col justify-start items-start w-full h-full overflow-y-auto pt-24 px-4"
+        class="mobile-menu-list flex flex-col justify-start items-start w-full h-full overflow-y-auto px-4"
       >
+        <!-- Mobile Theme Toggle Button -->
+        <button
+          id="mobile-theme-toggle"
+          class="w-full py-2 text-lg text-white text-center focus:outline-none mb-4"
+        >
+          Light
+        </button>
         <a
           class="mobile-menu-link w-full py-2 text-lg border-b border-gray-700"
           data-translate="homeLink"
@@ -1210,7 +1223,7 @@
           id="mobile-men-submenu"
         >
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="tshirts"
           >
             T-Shirts
@@ -1218,16 +1231,8 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-tshirts-gu44i.html"
-              >Gu44i</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-tshirts-f3ndi.html"
-              >F3ndi</a
-            >
+            <a class="block px-8 py-2" href="./men-tshirts-gu44i.html">Gu44i</a>
+            <a class="block px-8 py-2" href="./men-tshirts-f3ndi.html">F3ndi</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
@@ -1235,15 +1240,11 @@
             > -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-tshirts-d10r.html"
-              >D10r</a
-            >
+            <a class="block px-8 py-2" href="./men-tshirts-d10r.html">D10r</a>
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="jackets"
           >
             Jackets
@@ -1251,28 +1252,14 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-jackets-gu44i.html"
-              >Gu44i</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-jackets-f3ndi.html"
-              >F3ndi</a
-            >
+            <a class="block px-8 py-2" href="./men-jackets-gu44i.html">Gu44i</a>
+            <a class="block px-8 py-2" href="./men-jackets-f3ndi.html">F3ndi</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-jackets-l5vv.html"
-              >L5VV</a
-            >
+            <a class="block px-8 py-2" href="./men-jackets-l5vv.html">L5VV</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
               >Balen44iaga</a
             > -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-jackets-m0ncl3r.html"
+            <a class="block px-8 py-2" href="./men-jackets-m0ncl3r.html"
               >M0ncl3r</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a> -->
@@ -1280,7 +1267,7 @@
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="pants"
           >
             Pants
@@ -1289,11 +1276,7 @@
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-pants-f3ndi.html"
-              >F3ndi</a
-            >
+            <a class="block px-8 py-2" href="./men-pants-f3ndi.html">F3ndi</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
@@ -1306,7 +1289,7 @@
 
           <!-- Footwear -->
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="shoes"
           >
             Shoes
@@ -1317,29 +1300,17 @@
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Gu44i</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-shoes-l5vv.html"
-              >L5VV</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-shoes-balenc44iaga.html"
+            <a class="block px-8 py-2" href="./men-shoes-l5vv.html">L5VV</a>
+            <a class="block px-8 py-2" href="./men-shoes-balenc44iaga.html"
               >Balen44iaga</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-shoes-mcqu33n.html"
+            <a class="block px-8 py-2" href="./men-shoes-mcqu33n.html"
               >Al3xander McQu33n</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-shoes-loubout1n.html"
+            <a class="block px-8 py-2" href="./men-shoes-loubout1n.html"
               >Loubout1n</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-shoes-l0r0.html"
+            <a class="block px-8 py-2" href="./men-shoes-l0r0.html"
               >Loro P1ano</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a> -->
@@ -1349,7 +1320,7 @@
 
           <!-- Bags -->
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="bags"
           >
             Bags
@@ -1357,22 +1328,10 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-bags-gu44i.html"
-              >Gu44i</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-bags-f3ndi.html"
-              >F3ndi</a
-            >
+            <a class="block px-8 py-2" href="./men-bags-gu44i.html">Gu44i</a>
+            <a class="block px-8 py-2" href="./men-bags-f3ndi.html">F3ndi</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-bags-l5vv.html"
-              >L5VV</a
-            >
+            <a class="block px-8 py-2" href="./men-bags-l5vv.html">L5VV</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
               >Balen44iaga</a
             > -->
@@ -1382,7 +1341,7 @@
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="sunglasses"
           >
             Sunglasses
@@ -1394,14 +1353,10 @@
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-sunglasses-cart13r.html"
+            <a class="block px-8 py-2" href="./men-sunglasses-cart13r.html"
               >Cart13r</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-sunglasses-cel1ne.html"
+            <a class="block px-8 py-2" href="./men-sunglasses-cel1ne.html"
               >Cel1ne</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a> -->
@@ -1410,7 +1365,7 @@
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="watches"
           >
             Watches
@@ -1418,16 +1373,10 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-watches-aud3mars.html"
+            <a class="block px-8 py-2" href="./men-watches-aud3mars.html"
               >Aud3mars</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./men-watches-r0l3x.html"
-              >R0l3x</a
-            >
+            <a class="block px-8 py-2" href="./men-watches-r0l3x.html">R0l3x</a>
           </div>
         </div>
 
@@ -1446,7 +1395,7 @@
           id="mobile-men-submenu"
         >
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="tshirts"
           >
             T-Shirts
@@ -1454,21 +1403,13 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-tshirts-am1r1.html"
+            <a class="block px-8 py-2" href="./women-tshirts-am1r1.html"
               >Am1r1</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-tshirts-l5vv.html"
-              >L5VV</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-tshirts-balen44iaga.html"
+            <a class="block px-8 py-2" href="./women-tshirts-l5vv.html">L5VV</a>
+            <a class="block px-8 py-2" href="./women-tshirts-balen44iaga.html"
               >Balen44iaga</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a> -->
@@ -1477,7 +1418,7 @@
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="suits"
           >
             Jackets
@@ -1485,14 +1426,10 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-suit-d10r.html"
-              >D10r</a
-            >
+            <a class="block px-8 py-2" href="./women-suit-d10r.html">D10r</a>
           </div>
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="pants"
           >
             Pants
@@ -1500,18 +1437,12 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-pants-chrom3h3arts.html"
+            <a class="block px-8 py-2" href="./women-pants-chrom3h3arts.html"
               >Chrom3 H3arts</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-pants-l5vv.html"
-              >L5VV</a
-            >
+            <a class="block px-8 py-2" href="./women-pants-l5vv.html">L5VV</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
               >Balen44iaga</a
             > -->
@@ -1521,7 +1452,7 @@
 
           <!-- Footwear -->
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="shoes"
           >
             Shoes
@@ -1529,53 +1460,31 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-gu44i.html"
-              >Gu44i</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-loubout1n.html"
+            <a class="block px-8 py-2" href="./women-shoes-gu44i.html">Gu44i</a>
+            <a class="block px-8 py-2" href="./women-shoes-loubout1n.html"
               >Loubout1n</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Pr9d9</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-l5vv.html"
-              >L5VV</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-balenc44iaga.html"
+            <a class="block px-8 py-2" href="./women-shoes-l5vv.html">L5VV</a>
+            <a class="block px-8 py-2" href="./women-shoes-balenc44iaga.html"
               >Balen44iaga</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-chan3ll.html"
+            <a class="block px-8 py-2" href="./women-shoes-chan3ll.html"
               >Chan3ll</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-d10r.html"
-              >D10r</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-val3nt1no.html"
+            <a class="block px-8 py-2" href="./women-shoes-d10r.html">D10r</a>
+            <a class="block px-8 py-2" href="./women-shoes-val3nt1no.html"
               >Val3nt1no</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-shoes-l0r0.html"
+            <a class="block px-8 py-2" href="./women-shoes-l0r0.html"
               >Loro P1ano</a
             >
           </div>
 
           <!-- Bags -->
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="bags"
           >
             Bags
@@ -1583,40 +1492,24 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-bags-gu44i.html"
-              >Gu44i</a
-            >
+            <a class="block px-8 py-2" href="./women-bags-gu44i.html">Gu44i</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">F3ndi</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-bags-pr9d9.html"
-              >Pr9d9</a
-            >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-bags-l5vv.html"
-              >L5VV</a
-            >
+            <a class="block px-8 py-2" href="./women-bags-pr9d9.html">Pr9d9</a>
+            <a class="block px-8 py-2" href="./women-bags-l5vv.html">L5VV</a>
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
               >Balen44iaga</a
             > -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-bags-chan3ll.html"
+            <a class="block px-8 py-2" href="./women-bags-chan3ll.html"
               >Chan3ll</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-bags-h3rm3s.html"
+            <a class="block px-8 py-2" href="./women-bags-h3rm3s.html"
               >H3rm3s</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a> -->
           </div>
 
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="sunglasses"
           >
             Sunglasses
@@ -1624,33 +1517,23 @@
           <div
             class="brand-submenu max-h-0 overflow-hidden opacity-0 transition-all duration-300"
           >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-sunglasses-bvlgar1.html"
+            <a class="block px-8 py-2" href="./women-sunglasses-bvlgar1.html"
               >Bvlgar1</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-sunglasses-cart13r.html"
+            <a class="block px-8 py-2" href="./women-sunglasses-cart13r.html"
               >Cart13r</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-sunglasses-cel1ne.html"
+            <a class="block px-8 py-2" href="./women-sunglasses-cel1ne.html"
               >Cel1ne</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">L5VV</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#"
               >Balen44iaga</a
             > -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-sunglasses-chan3ll.html"
+            <a class="block px-8 py-2" href="./women-sunglasses-chan3ll.html"
               >Chan3ll</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-sunglasses-m1um1u.html"
+            <a class="block px-8 py-2" href="./women-sunglasses-m1um1u.html"
               >M1u M1u</a
             >
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a> -->
@@ -1658,7 +1541,7 @@
 
           <!-- Accessories -->
           <button
-            class="sub-sub-item brand-toggle block px-6 py-2 hover:bg-gray-800 w-full text-left"
+            class="sub-sub-item brand-toggle block px-6 py-2 w-full text-left"
             data-translate="accessories"
           >
             Accessories
@@ -1676,14 +1559,10 @@
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">Chan3ll</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">H3rm3s</a> -->
             <!-- <a class="block px-8 py-2 hover:bg-gray-800" href="#">D10r</a> -->
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-accessories-cart13r.html"
+            <a class="block px-8 py-2" href="./women-accessories-cart13r.html"
               >Cart13r</a
             >
-            <a
-              class="block px-8 py-2 hover:bg-gray-800"
-              href="./women-accessories-vancl33f.html"
+            <a class="block px-8 py-2" href="./women-accessories-vancl33f.html"
               >Van Cl33f & Arpels</a
             >
           </div>
@@ -1725,7 +1604,7 @@
         >
           Products
         </h2>
-        <div class="flex justify-between items-center mb-6">
+        <!-- <div class="flex justify-between items-center mb-6">
           <div></div>
           <button
             class="bg-black/85 text-white font-semibold py-2 px-4 rounded-lg hover:bg-black/95 transition-all duration-300"
@@ -1734,7 +1613,7 @@
           >
             ⚙️ Filters
           </button>
-        </div>
+        </div> -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid">
           <div
             class="product-card"
